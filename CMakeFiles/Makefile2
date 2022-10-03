@@ -54,10 +54,17 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
+<<<<<<< HEAD
 CMAKE_SOURCE_DIR = /home/saldanha/Desktop/IC/grupo/IC22-23
 
 # The top-level build directory on which CMake was run.
 CMAKE_BINARY_DIR = /home/saldanha/Desktop/IC/grupo/IC22-23
+=======
+CMAKE_SOURCE_DIR = /home/matilde/Desktop/IC/Lab1
+
+# The top-level build directory on which CMake was run.
+CMAKE_BINARY_DIR = /home/matilde/Desktop/IC/Lab1
+>>>>>>> ba8702c98d02f7681e437cfa3bb1a91fee6114b7
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -85,14 +92,24 @@ clean: CMakeFiles/wav_dct.dir/clean
 CMakeFiles/wav_cp.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/wav_cp.dir/build.make CMakeFiles/wav_cp.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/wav_cp.dir/build.make CMakeFiles/wav_cp.dir/build
+<<<<<<< HEAD
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/saldanha/Desktop/IC/grupo/IC22-23/CMakeFiles --progress-num=1,2 "Built target wav_cp"
+=======
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/matilde/Desktop/IC/Lab1/CMakeFiles --progress-num=1,2 "Built target wav_cp"
+>>>>>>> ba8702c98d02f7681e437cfa3bb1a91fee6114b7
 .PHONY : CMakeFiles/wav_cp.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/wav_cp.dir/rule: cmake_check_build_system
+<<<<<<< HEAD
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/saldanha/Desktop/IC/grupo/IC22-23/CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/wav_cp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/saldanha/Desktop/IC/grupo/IC22-23/CMakeFiles 0
+=======
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/matilde/Desktop/IC/Lab1/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/wav_cp.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/matilde/Desktop/IC/Lab1/CMakeFiles 0
+>>>>>>> ba8702c98d02f7681e437cfa3bb1a91fee6114b7
 .PHONY : CMakeFiles/wav_cp.dir/rule
 
 # Convenience name for target.
@@ -111,14 +128,24 @@ CMakeFiles/wav_cp.dir/clean:
 CMakeFiles/wav_hist.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/wav_hist.dir/build.make CMakeFiles/wav_hist.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/wav_hist.dir/build.make CMakeFiles/wav_hist.dir/build
+<<<<<<< HEAD
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/saldanha/Desktop/IC/grupo/IC22-23/CMakeFiles --progress-num=5,6 "Built target wav_hist"
+=======
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/matilde/Desktop/IC/Lab1/CMakeFiles --progress-num=5,6 "Built target wav_hist"
+>>>>>>> ba8702c98d02f7681e437cfa3bb1a91fee6114b7
 .PHONY : CMakeFiles/wav_hist.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/wav_hist.dir/rule: cmake_check_build_system
+<<<<<<< HEAD
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/saldanha/Desktop/IC/grupo/IC22-23/CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/wav_hist.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/saldanha/Desktop/IC/grupo/IC22-23/CMakeFiles 0
+=======
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/matilde/Desktop/IC/Lab1/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/wav_hist.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/matilde/Desktop/IC/Lab1/CMakeFiles 0
+>>>>>>> ba8702c98d02f7681e437cfa3bb1a91fee6114b7
 .PHONY : CMakeFiles/wav_hist.dir/rule
 
 # Convenience name for target.
@@ -137,14 +164,24 @@ CMakeFiles/wav_hist.dir/clean:
 CMakeFiles/wav_dct.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/wav_dct.dir/build.make CMakeFiles/wav_dct.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/wav_dct.dir/build.make CMakeFiles/wav_dct.dir/build
+<<<<<<< HEAD
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/saldanha/Desktop/IC/grupo/IC22-23/CMakeFiles --progress-num=3,4 "Built target wav_dct"
+=======
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/matilde/Desktop/IC/Lab1/CMakeFiles --progress-num=3,4 "Built target wav_dct"
+>>>>>>> ba8702c98d02f7681e437cfa3bb1a91fee6114b7
 .PHONY : CMakeFiles/wav_dct.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/wav_dct.dir/rule: cmake_check_build_system
+<<<<<<< HEAD
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/saldanha/Desktop/IC/grupo/IC22-23/CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/wav_dct.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/saldanha/Desktop/IC/grupo/IC22-23/CMakeFiles 0
+=======
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/matilde/Desktop/IC/Lab1/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/wav_dct.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/matilde/Desktop/IC/Lab1/CMakeFiles 0
+>>>>>>> ba8702c98d02f7681e437cfa3bb1a91fee6114b7
 .PHONY : CMakeFiles/wav_dct.dir/rule
 
 # Convenience name for target.

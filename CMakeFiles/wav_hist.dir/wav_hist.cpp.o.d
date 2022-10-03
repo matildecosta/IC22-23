@@ -1,6 +1,11 @@
 CMakeFiles/wav_hist.dir/wav_hist.cpp.o: \
+<<<<<<< HEAD
  /home/saldanha/Desktop/IC/grupo/IC22-23/wav_hist.cpp \
  /usr/include/stdc-predef.h /usr/include/c++/11/iostream \
+=======
+ /home/matilde/Desktop/IC/Lab1/wav_hist.cpp /usr/include/stdc-predef.h \
+ /usr/include/c++/11/iostream \
+>>>>>>> ba8702c98d02f7681e437cfa3bb1a91fee6114b7
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -154,8 +159,12 @@ CMakeFiles/wav_hist.dir/wav_hist.cpp.o: \
  /usr/include/c++/11/bits/stl_vector.h \
  /usr/include/c++/11/bits/stl_bvector.h \
  /usr/include/c++/11/bits/vector.tcc /usr/include/sndfile.hh \
+<<<<<<< HEAD
  /usr/include/sndfile.h \
  /home/saldanha/Desktop/IC/grupo/IC22-23/wav_hist.h \
+=======
+ /usr/include/sndfile.h /home/matilde/Desktop/IC/Lab1/wav_hist.h \
+>>>>>>> ba8702c98d02f7681e437cfa3bb1a91fee6114b7
  /usr/include/c++/11/map /usr/include/c++/11/bits/stl_tree.h \
  /usr/include/c++/11/ext/aligned_buffer.h \
  /usr/include/c++/11/bits/node_handle.h \

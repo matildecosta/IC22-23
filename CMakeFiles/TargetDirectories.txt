@@ -1,5 +1,13 @@
+<<<<<<< HEAD
 /home/saldanha/Desktop/IC/grupo/IC22-23/CMakeFiles/wav_cp.dir
 /home/saldanha/Desktop/IC/grupo/IC22-23/CMakeFiles/wav_hist.dir
 /home/saldanha/Desktop/IC/grupo/IC22-23/CMakeFiles/wav_dct.dir
 /home/saldanha/Desktop/IC/grupo/IC22-23/CMakeFiles/edit_cache.dir
 /home/saldanha/Desktop/IC/grupo/IC22-23/CMakeFiles/rebuild_cache.dir
+=======
+/home/matilde/Desktop/IC/Lab1/CMakeFiles/wav_cp.dir
+/home/matilde/Desktop/IC/Lab1/CMakeFiles/wav_hist.dir
+/home/matilde/Desktop/IC/Lab1/CMakeFiles/wav_dct.dir
+/home/matilde/Desktop/IC/Lab1/CMakeFiles/edit_cache.dir
+/home/matilde/Desktop/IC/Lab1/CMakeFiles/rebuild_cache.dir
+>>>>>>> ba8702c98d02f7681e437cfa3bb1a91fee6114b7

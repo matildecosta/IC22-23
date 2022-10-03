@@ -1,6 +1,11 @@
 CMakeFiles/wav_dct.dir/wav_dct.cpp.o: \
+<<<<<<< HEAD
  /home/saldanha/Desktop/IC/grupo/IC22-23/wav_dct.cpp \
  /usr/include/stdc-predef.h /usr/include/c++/11/iostream \
+=======
+ /home/matilde/Desktop/IC/Lab1/wav_dct.cpp /usr/include/stdc-predef.h \
+ /usr/include/c++/11/iostream \
+>>>>>>> ba8702c98d02f7681e437cfa3bb1a91fee6114b7
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
  /usr/include/features.h /usr/include/features-time64.h \

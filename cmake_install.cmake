@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # Install script for directory: /home/saldanha/Desktop/IC/grupo/IC22-23
+=======
+# Install script for directory: /home/matilde/Desktop/IC/Lab1
+>>>>>>> ba8702c98d02f7681e437cfa3bb1a91fee6114b7
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +54,9 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
+<<<<<<< HEAD
 file(WRITE "/home/saldanha/Desktop/IC/grupo/IC22-23/${CMAKE_INSTALL_MANIFEST}"
+=======
+file(WRITE "/home/matilde/Desktop/IC/Lab1/${CMAKE_INSTALL_MANIFEST}"
+>>>>>>> ba8702c98d02f7681e437cfa3bb1a91fee6114b7
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
