@@ -37,8 +37,8 @@ class WAVHist {
 				//std::cout << mean << std::endl;
 				std::cout << samples[i] << std::endl;
 
-
-				outfile << mean << std::endl;
+				
+				outfile << mean << "teste" <<  std::endl;
 				}
 				i++;
 		}
