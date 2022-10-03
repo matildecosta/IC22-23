@@ -29,25 +29,35 @@ class WAVHist {
 
 	void average(const std::vector<short>& samples){
 		int i = 1;
-		std::ofstream outfile ("test.txt");
-		std:: cout << counts.size()<< std::endl;
+		std::ofstream outfile ("test_sum.txt");
+		//std:: cout << counts.size()<< std::endl;
 		while(i < samples.size()){
 			if(i%2 == 1){
 				double mean = (samples[i-1] + samples[i])/2;
 				//std::cout << mean << std::endl;
-				std::cout << samples[i] << std::endl;
-
-				
-				outfile << mean << "teste" <<  std::endl;
+				//std::cout << samples[i] << std::endl;
+				outfile << mean << std::endl;
 				}
 				i++;
 		}
 		outfile.close();
-		
-		   
-
 	}
-	void difference(){} 
+
+	void difference(const std::vector<short>& samples){
+		int i = 1;
+		std::ofstream outfile ("test_diff.txt");
+		//std:: cout << counts.size()<< std::endl;
+		while(i < samples.size()){
+			if(i%2 == 1){
+				double mean = (samples[i-1] - samples[i])/2;
+				//std::cout << mean << std::endl;
+				//std::cout << samples[i] << std::endl;
+				outfile << mean << std::endl;
+				}
+				i++;
+		}
+		outfile.close();
+	} 
 };
 
 #endif
