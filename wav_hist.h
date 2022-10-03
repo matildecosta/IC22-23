@@ -45,11 +45,16 @@ class WAVHist {
 
 	void difference(const std::vector<short>& samples){
 		int i = 1;
+		int count = 0;
+		std::vector<int> mean_values;
 		std::ofstream outfile ("test_diff.txt");
 		//std:: cout << counts.size()<< std::endl;
 		while(i < samples.size()){
 			if(i%2 == 1){
 				double mean = (samples[i-1] - samples[i])/2;
+				mean_values[count] = mean;
+				count++;
+
 				//std::cout << mean << std::endl;
 				//std::cout << samples[i] << std::endl;
 				outfile << mean << std::endl;
@@ -58,6 +63,32 @@ class WAVHist {
 		}
 		outfile.close();
 	} 
+
+	void hist(){
+	
+		
+
+	/*	int maxEle = *max_element(arr, arr + n);
+   for (int i = maxEle; i >= 0; i--) {
+      cout.width(2);
+      cout << right << i << " | ";
+      for (int j = 0; j < n; j++) {
+         if (arr[j] >= i)
+            cout << " x ";
+         else
+            cout << " ";
+      }
+      cout << "\n";
+   }
+   for (int i = 0; i < n + 3; i++)
+   cout << "---";
+   cout << "\n";
+   cout << " ";
+   for (int i = 0; i < n; i++) {
+      cout.width(2);
+      cout << right << arr[i] << " ";
+   }
+	} */
 };
 
 #endif
