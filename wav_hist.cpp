@@ -42,9 +42,10 @@ int main(int argc, char *argv[]) {
 	while((nFrames = sndFile.readf(samples.data(), FRAMES_BUFFER_SIZE))) {
 		samples.resize(nFrames * sndFile.channels());
 		hist.update(samples);
+		hist.average(samples);
 	}
 
 	hist.dump(channel);
+	
 	return 0;
 }
-

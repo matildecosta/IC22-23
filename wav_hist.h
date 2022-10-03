@@ -1,6 +1,7 @@
 #ifndef WAVHIST_H
 #define WAVHIST_H
 
+#include <fstream>
 #include <iostream>
 #include <vector>
 #include <map>
@@ -25,6 +26,28 @@ class WAVHist {
 		for(auto [value, counter] : counts[channel])
 			std::cout << value << '\t' << counter << '\n';
 	}
+
+	void average(const std::vector<short>& samples){
+		int i = 1;
+		std::ofstream outfile ("test.txt");
+		std:: cout << counts.size()<< std::endl;
+		while(i < samples.size()){
+			if(i%2 == 1){
+				double mean = (samples[i-1] + samples[i])/2;
+				//std::cout << mean << std::endl;
+				std::cout << samples[i] << std::endl;
+
+
+				outfile << mean << std::endl;
+				}
+				i++;
+		}
+		outfile.close();
+		
+		   
+
+	}
+	void difference(){} 
 };
 
 #endif
