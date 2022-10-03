@@ -1,0 +1,5 @@
+/home/matilde/Desktop/IC/Lab1/CMakeFiles/wav_cp.dir
+/home/matilde/Desktop/IC/Lab1/CMakeFiles/wav_hist.dir
+/home/matilde/Desktop/IC/Lab1/CMakeFiles/wav_dct.dir
+/home/matilde/Desktop/IC/Lab1/CMakeFiles/edit_cache.dir
+/home/matilde/Desktop/IC/Lab1/CMakeFiles/rebuild_cache.dir
