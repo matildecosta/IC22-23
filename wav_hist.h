@@ -10,6 +10,8 @@
 class WAVHist {
   private:
 	std::vector<std::map<short, size_t>> counts;
+	std::map<double,int> results_diff;
+	std::map<double,int> results_sum;
 
   public:
 	WAVHist(const SndfileHandle& sfh) {
@@ -28,12 +30,15 @@ class WAVHist {
 	}
 
 	void average(const std::vector<short>& samples){
-		int i = 1;
+		int i = 1,count;
+		double mean;
+		std::vector<double> mean_values;
 		std::ofstream outfile ("test_sum.txt");
 		//std:: cout << counts.size()<< std::endl;
 		while(i < samples.size()){
 			if(i%2 == 1){
-				double mean = (samples[i-1] + samples[i])/2;
+				mean = (samples[i-1] + samples[i])/2;
+				mean_values.push_back(mean);
 				//std::cout << mean << std::endl;
 				//std::cout << samples[i] << std::endl;
 				outfile << mean << std::endl;
@@ -41,20 +46,39 @@ class WAVHist {
 				i++;
 		}
 		outfile.close();
+
+		//contagem das repetições das médias
+		for(int i=0; i<mean_values.size(); i++){
+			count = 0;
+			for(int j=0; j<mean_values.size(); j++){
+				if((mean_values[i] == mean_values[j]) && i!=j){
+					count++;
+					if (results_sum.find(mean_values[i]) == results_sum.end()) {
+						results_sum.insert({mean_values[i],count});
+					}
+					else{
+						results_sum[mean_values[i]] += count;
+					}
+					mean_values.erase(mean_values.begin()+j);
+					j--;	//correção de remover um elemento	
+					
+				}
+
+			}
+			
+			mean_values[i] += count;	
+		}
 	}
 
 	void difference(const std::vector<short>& samples){
 		int i = 1;
-		int count = 0;
-		std::vector<int> mean_values;
+		std::vector<double> mean_values;
 		std::ofstream outfile ("test_diff.txt");
 		//std:: cout << counts.size()<< std::endl;
 		while(i < samples.size()){
 			if(i%2 == 1){
 				double mean = (samples[i-1] - samples[i])/2;
-				mean_values[count] = mean;
-				count++;
-
+				mean_values.push_back(mean);
 				//std::cout << mean << std::endl;
 				//std::cout << samples[i] << std::endl;
 				outfile << mean << std::endl;
@@ -62,34 +86,55 @@ class WAVHist {
 				i++;
 		}
 		outfile.close();
+		
+		//contagem das repetições das médias
+		int count;
+		for(int i=0; i<mean_values.size(); i++){
+			count = 0;
+			for(int j=0; j<mean_values.size(); j++){
+				if((mean_values[i] == mean_values[j]) && i!=j){
+					count++;
+					if (results_diff.find(mean_values[i]) == results_diff.end()) {
+						results_diff.insert({mean_values[i],count});
+					}
+					else{
+						results_diff[mean_values[i]] += count;
+					}
+					mean_values.erase(mean_values.begin()+j);
+					j--;	//correção de remover um elemento	
+					
+				}
+
+			}
+			
+			mean_values[i] += count;	
+		}
 	} 
 
-	void hist(){
-	
-		
+	void show_result(){
+		std::ofstream outfile1 ("hist_sum.txt");
+		for (auto itr = results_sum.begin(); itr != results_sum.end(); ++itr) {
+        	outfile1 << itr->first << '\t';
+			for(int i =0;i<itr->second;i++){
+				outfile1 << "*";
+			}
+			outfile1 << '\n';
+    	}
+		outfile1.close();
 
-	/*	int maxEle = *max_element(arr, arr + n);
-   for (int i = maxEle; i >= 0; i--) {
-      cout.width(2);
-      cout << right << i << " | ";
-      for (int j = 0; j < n; j++) {
-         if (arr[j] >= i)
-            cout << " x ";
-         else
-            cout << " ";
-      }
-      cout << "\n";
-   }
-   for (int i = 0; i < n + 3; i++)
-   cout << "---";
-   cout << "\n";
-   cout << " ";
-   for (int i = 0; i < n; i++) {
-      cout.width(2);
-      cout << right << arr[i] << " ";
-   }
-	} */
+		std::ofstream outfile2 ("hist_diff.txt");
+		for (auto itr = results_diff.begin(); itr != results_diff.end(); ++itr) {
+        	outfile2 << itr->first << '\t';
+			for(int i =0;i<itr->second;i++){
+				outfile2 << "*";
+			}
+			outfile2 << '\n';
+    	}
+		outfile2.close();
+
+	}
 };
 
 #endif
+
 

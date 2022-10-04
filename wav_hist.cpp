@@ -43,9 +43,11 @@ int main(int argc, char *argv[]) {
 		samples.resize(nFrames * sndFile.channels());
 		hist.update(samples);
 		hist.average(samples);
+		hist.difference(samples);
 	}
 
-	hist.dump(channel);
-	
+	//hist.dump(channel);
+	hist.show_result();
 	return 0;
 }
+
