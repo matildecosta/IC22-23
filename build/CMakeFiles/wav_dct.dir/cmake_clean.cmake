@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/matilde/University/IC/sndfile-example-bin/wav_dct"
-  "/home/matilde/University/IC/sndfile-example-bin/wav_dct.pdb"
+  "/home/matilde/Desktop/IC/sndfile-example-bin/wav_dct"
+  "/home/matilde/Desktop/IC/sndfile-example-bin/wav_dct.pdb"
   "CMakeFiles/wav_dct.dir/wav_dct.cpp.o"
   "CMakeFiles/wav_dct.dir/wav_dct.cpp.o.d"
 )

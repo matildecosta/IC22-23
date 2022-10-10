@@ -195,6 +195,11 @@ CMakeFiles/wav_hist.dir/wav_hist.cpp.o: ../wav_hist.cpp \
   /usr/include/sndfile.hh \
   /usr/include/sndfile.h \
   ../wav_hist.h \
+  /usr/include/c++/11/fstream \
+  /usr/include/c++/11/bits/codecvt.h \
+  /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
+  /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
+  /usr/include/c++/11/bits/fstream.tcc \
   /usr/include/c++/11/map \
   /usr/include/c++/11/bits/stl_tree.h \
   /usr/include/c++/11/ext/aligned_buffer.h \
@@ -219,6 +224,12 @@ CMakeFiles/wav_hist.dir/wav_hist.cpp.o: ../wav_hist.cpp \
 /usr/include/c++/11/bits/stl_relops.h:
 
 /usr/include/c++/11/bits/stl_map.h:
+
+/usr/include/c++/11/bits/fstream.tcc:
+
+/usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h:
+
+/usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h:
 
 ../wav_hist.h:
 
@@ -442,6 +453,8 @@ CMakeFiles/wav_hist.dir/wav_hist.cpp.o: ../wav_hist.cpp \
 
 /usr/include/c++/11/iosfwd:
 
+/usr/include/c++/11/bits/codecvt.h:
+
 /usr/include/x86_64-linux-gnu/bits/time64.h:
 
 /usr/include/c++/11/bits/stl_function.h:
@@ -617,6 +630,8 @@ CMakeFiles/wav_hist.dir/wav_hist.cpp.o: ../wav_hist.cpp \
 /usr/include/x86_64-linux-gnu/bits/endian.h:
 
 /usr/include/c++/11/bits/basic_string.h:
+
+/usr/include/c++/11/fstream:
 
 /usr/include/c++/11/bits/cxxabi_forced.h:
 
