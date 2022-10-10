@@ -1,0 +1,78 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Release-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Release",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "sndfile-example",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "wav_cp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-wav_cp-Release-34ea4153fb5fa7fda7db.json",
+					"name" : "wav_cp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "wav_dct::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-wav_dct-Release-fc19599301063c004844.json",
+					"name" : "wav_dct",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "wav_hist::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-wav_hist-Release-2ad6c7da62812e3ed146.json",
+					"name" : "wav_hist",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/matilde/Desktop/IC/Lab1/build",
+		"source" : "/home/matilde/Desktop/IC/Lab1"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}
