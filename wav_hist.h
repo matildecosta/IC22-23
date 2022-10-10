@@ -115,20 +115,22 @@ class WAVHist {
 		std::ofstream outfile1 ("hist_sum.txt");
 		for (auto itr = results_sum.begin(); itr != results_sum.end(); ++itr) {
         	outfile1 << itr->first << '\t';
-			for(int i =0;i<itr->second;i++){
-				outfile1 << "*";
-			}
-			outfile1 << '\n';
+			outfile1 << itr->second << '\n';
+			// for(int i =0;i<itr->second;i++){
+			// 	outfile1 << "*";
+			// }
+			// outfile1 << '\n';
     	}
 		outfile1.close();
 
 		std::ofstream outfile2 ("hist_diff.txt");
 		for (auto itr = results_diff.begin(); itr != results_diff.end(); ++itr) {
         	outfile2 << itr->first << '\t';
-			for(int i =0;i<itr->second;i++){
-				outfile2 << "*";
-			}
-			outfile2 << '\n';
+			// for(int i =0;i<itr->second;i++){
+			// 	outfile2 << "*";
+			// }
+			// outfile2 << '\n';
+			outfile2 << itr->second << '\n';
     	}
 		outfile2.close();
 
