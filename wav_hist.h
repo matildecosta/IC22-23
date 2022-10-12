@@ -126,10 +126,6 @@ class WAVHist {
 		std::ofstream outfile2 ("hist_diff.txt");
 		for (auto itr = results_diff.begin(); itr != results_diff.end(); ++itr) {
         	outfile2 << itr->first << '\t';
-			// for(int i =0;i<itr->second;i++){
-			// 	outfile2 << "*";
-			// }
-			// outfile2 << '\n';
 			outfile2 << itr->second << '\n';
     	}
 		outfile2.close();
@@ -138,5 +134,3 @@ class WAVHist {
 };
 
 #endif
-
-
