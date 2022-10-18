@@ -33,14 +33,15 @@ int main(int argc, char* argv[]){
     BitStream bs {argv[argc-1], mode};
 
     if (mode == "r"){
-        ofstream ofs {argv[argc-2]};
+        ofstream ofs {argv[argc-2]};    // reading mode - ler o ficheiro que se colocou primeiro
         int bit;
         
         while ((bit = bs.read_bit()) != EOF){
             ofs << bit << endl;
         }
         ofs.close();
-    } else {
+        
+    } else {            // writing mode
         ifstream ifs {argv[argc-2]};
         int val;
         while (ifs >> val)
@@ -49,6 +50,8 @@ int main(int argc, char* argv[]){
         }
         ifs.close();
     }
+
+    bs.close();
 
     return 0;
 }

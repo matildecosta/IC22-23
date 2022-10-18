@@ -8,45 +8,53 @@
 
 class BitStream {
     private:
-        std::vector<bool> bit_buffer;
-        std::fstream myFileTxt;
-        std::fstream myFileBin;
+        char bit_buffer;
+        std::fstream myFile;    // ficheiro binario
+        char mode;
+        size_t counter;
         
 
     public:
 
-        BitStream(string filenametxt, string filenamebin ){
-            myFileTxt.open(filenametxt);
-            myFileBin.open(filenamebin);
+        BitStream(string filename, char m){
+            myFile(filename);
+            mode = m;
+            counter = 0;
         }
 
-        void get_bit(){ // 1 bit Txt -> Bin
-            if bit_buffer.empty(){  // Leitura de 1 byte
-                for(int i = 0;i<8;i++){
-                    static string str;
-                    getline(myFile, str);
-                    bit_buffer.insert(7-i, str-0x30);}
+        int read_bit(){ // se buffer está empty: bin -> buffer e devolve sempre a 1ª posição do buffer
+            if (counter == 0){        // buffer empty -> ler bin
+                bit_buffer = getc(myFile);
+                counter = 8;
             }
-            
-                        
+            int first = (bit_buffer & 0x10) >> 7;  //  devolver o bit mais à esquerda
+            bit_buffer = bit_buffer << 1;   // deslocar todos os bits para a esquerda
+            counter --; // diminui o valor do counter
+            return first;
         }
 
+        void write_bit(int b){  // val parâmetros -> buffer e se buffer está full: buffer -> bin;   b é sempre z ou 1
+            but_buffer = (bit_buffer | (b << (7 - counter)));
+            counter ++;
+
+            if(counter == 8){      // buffer full --> escrever no bin
+                myfile.write(bit_buffer);   // escreve no ficheiro
+                bit_buffer = bit_buffer & 0x00;  // limpar o buffer
+                counter = 0;    // zero elementos no buffer
+            }
+        }
 
         void close (){
-            if !bit_buffer.empty(){
-                myFile << bit_buffer;}
-            
-            myFile.close();
+        
         }
 
-        std::istream &operator>>(std::istream &is, BitStream bs){
+/*         std::istream &operator>>(std::istream &is, BitStream bs){
             is >> bs.bit_buffer;
         }
 
         std::ostream &operator<<(std::ostream &os, BitStream bs){
             os << (bs.bit_buffer).front();
-            (bs.bit_buffer).erase(cbegin());
-        }
+        } */
 
 
 }
