@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/matilde/Desktop/IC/Lab1;/build/sndfile-example-bin/bitstr"
-  "/home/matilde/Desktop/IC/Lab1;/build/sndfile-example-bin/bitstr.pdb"
+  "/home/matilde/Desktop/IC/sndfile-example-bin/bitstr"
+  "/home/matilde/Desktop/IC/sndfile-example-bin/bitstr.pdb"
   "CMakeFiles/bitstr.dir/test_bs.cpp.o"
   "CMakeFiles/bitstr.dir/test_bs.cpp.o.d"
 )

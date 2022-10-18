@@ -35,20 +35,22 @@ int main(int argc, char* argv[]){
     BitStream bs (namebin, mode);
 
     if (mode == "r"){
-        ofstream ofs (nametxt);    // reading mode - ler o ficheiro que se colocou primeiro
+        ofstream ofs (nametxt);    // reading mode - bin -> txt
         int bit;
         
         while ((bit = bs.read_bit()) != EOF){
             ofs << bit << endl;
+            cout << bit << endl;
         }
         ofs.close();
         
-    } else {            // writing mode
+    } else {            // writing mode - txt -> bin
         ifstream ifs (nametxt);
         int val;
         while (ifs >> val)
         {
             bs.write_bit(val);
+            cout << val << endl;
         }
         ifs.close();
     }

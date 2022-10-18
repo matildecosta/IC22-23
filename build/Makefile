@@ -156,6 +156,19 @@ wav_dct/fast:
 .PHONY : wav_dct/fast
 
 #=============================================================================
+# Target rules for targets named wav_cmp
+
+# Build rule for target.
+wav_cmp: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 wav_cmp
+.PHONY : wav_cmp
+
+# fast build rule for target.
+wav_cmp/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/wav_cmp.dir/build.make CMakeFiles/wav_cmp.dir/build
+.PHONY : wav_cmp/fast
+
+#=============================================================================
 # Target rules for targets named bitstr
 
 # Build rule for target.
@@ -191,6 +204,30 @@ test_bs.s: test_bs.cpp.s
 test_bs.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/bitstr.dir/build.make CMakeFiles/bitstr.dir/test_bs.cpp.s
 .PHONY : test_bs.cpp.s
+
+wav_cmp.o: wav_cmp.cpp.o
+.PHONY : wav_cmp.o
+
+# target to build an object file
+wav_cmp.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/wav_cmp.dir/build.make CMakeFiles/wav_cmp.dir/wav_cmp.cpp.o
+.PHONY : wav_cmp.cpp.o
+
+wav_cmp.i: wav_cmp.cpp.i
+.PHONY : wav_cmp.i
+
+# target to preprocess a source file
+wav_cmp.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/wav_cmp.dir/build.make CMakeFiles/wav_cmp.dir/wav_cmp.cpp.i
+.PHONY : wav_cmp.cpp.i
+
+wav_cmp.s: wav_cmp.cpp.s
+.PHONY : wav_cmp.s
+
+# target to generate assembly for a file
+wav_cmp.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/wav_cmp.dir/build.make CMakeFiles/wav_cmp.dir/wav_cmp.cpp.s
+.PHONY : wav_cmp.cpp.s
 
 wav_cp.o: wav_cp.cpp.o
 .PHONY : wav_cp.o
@@ -273,12 +310,16 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... bitstr"
+	@echo "... wav_cmp"
 	@echo "... wav_cp"
 	@echo "... wav_dct"
 	@echo "... wav_hist"
 	@echo "... test_bs.o"
 	@echo "... test_bs.i"
 	@echo "... test_bs.s"
+	@echo "... wav_cmp.o"
+	@echo "... wav_cmp.i"
+	@echo "... wav_cmp.s"
 	@echo "... wav_cp.o"
 	@echo "... wav_cp.i"
 	@echo "... wav_cp.s"

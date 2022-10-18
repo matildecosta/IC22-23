@@ -121,5 +121,6 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/wav_cp.dir/DependInfo.cmake"
   "CMakeFiles/wav_hist.dir/DependInfo.cmake"
   "CMakeFiles/wav_dct.dir/DependInfo.cmake"
+  "CMakeFiles/wav_cmp.dir/DependInfo.cmake"
   "CMakeFiles/bitstr.dir/DependInfo.cmake"
   )
