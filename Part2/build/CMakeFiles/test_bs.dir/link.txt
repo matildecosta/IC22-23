@@ -1,1 +1,0 @@
-/usr/bin/c++  -Wall -Wextra -std=c++17 -O3 CMakeFiles/test_bs.dir/test_bs.cpp.o -o /home/matilde/Desktop/IC/Lab1/test_bs  -lBitStream 

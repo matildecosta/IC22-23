@@ -1,3 +1,0 @@
-/home/matilde/Desktop/IC/Lab1/Part2/build/CMakeFiles/test_bs.dir
-/home/matilde/Desktop/IC/Lab1/Part2/build/CMakeFiles/edit_cache.dir
-/home/matilde/Desktop/IC/Lab1/Part2/build/CMakeFiles/rebuild_cache.dir
