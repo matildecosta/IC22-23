@@ -2,7 +2,8 @@
     "files.associations": {
         "vector": "cpp",
         "*.tcc": "c",
-        "fstream": "c"
+        "fstream": "c",
+        "ostream": "cpp"
     },
     "C_Cpp.errorSquiggles": "Disabled"
 }

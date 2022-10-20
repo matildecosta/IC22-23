@@ -6,9 +6,9 @@
 using namespace std;
 
 int main(int argc, char* argv[]){
-    string mode {"r"};
-    string namebin {argv[argc-1]};
-    string nametxt {argv[argc-2]};
+    string mode;
+    string namebin (argv[argc-2]);
+    string nametxt (argv[argc-3]);
 
     if (argc < 2){
         cerr << "test_bs [-r (def)] \n";
@@ -17,20 +17,16 @@ int main(int argc, char* argv[]){
         return 1;
     }
 
-    for (int n = 0; n < argc ; n++){
-        if(string(argv[n]) == "-r"){    // Reading mode
-            mode = "r";
-            break;
-        }
+    if(string(argv[argc-1]) == "-r"){    // Reading mode
+        mode = "r";
+    }else if(string(argv[argc-1]) == "-w"){    // Writing mode
+        mode = "w";
+    }else{
+        cerr << "test_bs [-r (def)] \n";
+        cerr << "        [-w] \n";
+        cerr << "        text_file bin_file \n";
+        return 1;
     }
-
-    for (int n = 0; n < argc ; n++){
-        if(string(argv[n]) == "-w"){    // Writing mode
-            mode = "w";
-            break;
-        }
-    }
-
 
     BitStream bs (namebin, mode);
 
@@ -43,7 +39,6 @@ int main(int argc, char* argv[]){
             cout << bit << endl;
         }
         ofs.close();
-        
     } else {            // writing mode - txt -> bin
         ifstream ifs (nametxt);
         int val;
