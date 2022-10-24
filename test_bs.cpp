@@ -6,12 +6,12 @@
 using namespace std;
 
 int main(int argc, char* argv[]){
-    string mode;
+    string mode = "r";
     string namebin (argv[argc-2]);
     string nametxt (argv[argc-3]);
 
     if (argc < 2){
-        cerr << "test_bs [-r (def)] \n";
+        cerr << "test_bs [-r] \n";
         cerr << "        [-w] \n";
         cerr << "        text_file bin_file \n";
         return 1;
@@ -52,5 +52,5 @@ int main(int argc, char* argv[]){
 
     bs.close();
 
-    return 0;
+    return 0; 
 }
