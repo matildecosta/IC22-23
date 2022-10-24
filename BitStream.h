@@ -27,19 +27,19 @@ class BitStream {
                 return EOF;
             }
             if (myFile.eof()){
-                return EOF;
                 std::cout << "end of file" << std::endl;
+                return EOF;
             } else {
                 if (counter == 0){
                     char c;
                     myFile.read(&c, 8);
-                    bit_buffer = c-0x30;
+                    bit_buffer = c;
                     counter = 8;
                 }   
                     std::cout << "buffer filled" << std::endl;
                 }
                 int bit = (bit_buffer & 0x01);
-                bit_buffer = bit_buffer >> 1;
+                bit_buffer = bit_buffer << 1;
                 counter--;
                 return bit;
         }
@@ -49,7 +49,7 @@ class BitStream {
                 std::cerr << "Error: write_bit() called in read mode" << std::endl;
                 return;
             }
-            bit_buffer <<= 1;
+            bit_buffer >>= 1;
             bit_buffer |= bit;
             counter++;
             if (counter == 8){
@@ -70,6 +70,7 @@ class BitStream {
             myFile.close();
             std::cout << "File closed" << std::endl;
         }
+
 };
 
 #endif
