@@ -45,7 +45,7 @@ class BitStream {
             } else if (counter == 0){
                 myFile.read(&bit_buffer, 1);
                 counter = 8;
-                std::cout << "buffer filled" << std::endl;
+                //std::cout << "buffer filled" << std::endl;
             }
             if (myFile.eof()){ // Para verificar se o ficheiro acabou, mas depois de fazer a leitura!!
                 std::cout << "end of file" << std::endl;
@@ -71,7 +71,7 @@ class BitStream {
                 myFile.write(&bit_buffer, 1);
                 bit_buffer = 0;
                 counter = 0;
-                std::cout << "buffer emptied" << std::endl;
+                //std::cout << "buffer emptied" << std::endl;
             }
         }
 

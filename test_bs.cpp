@@ -33,7 +33,6 @@ int main(int argc, char* argv[]){
     if (mode == "r"){
         ofstream ofs (nametxt);    // reading mode - bin -> txt
         int bit;
-        
         while ((bit = bs.read_bit()) != EOF){
             ofs << bit << endl;
             cout << bit << endl;
