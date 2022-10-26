@@ -75,14 +75,14 @@ class BitStream {
             }
         }
 
-        int readN_bits(int n){ // leitura de n bits
-            for (int i =0; i < n; i++){
-                return read_bit();
+        void readN_bits(int n, int* val){ // leitura de n bits
+            for (int i = 0; i < n; i++){
+                val[i] = read_bit();
             }
         }
 
         void writeN_bits(int n, int* bits){ // escrita de n bits
-            for (int i =0; i < n; i++){
+            for (int i = 0; i < n; i++){
                 write_bit(bits[i]);
             }
         }
