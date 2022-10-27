@@ -169,24 +169,98 @@ wav_cmp/fast:
 .PHONY : wav_cmp/fast
 
 #=============================================================================
-# Target rules for targets named bitstr
+# Target rules for targets named test_bitstream
 
 # Build rule for target.
-bitstr: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 bitstr
-.PHONY : bitstr
+test_bitstream: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_bitstream
+.PHONY : test_bitstream
 
 # fast build rule for target.
-bitstr/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bitstr.dir/build.make CMakeFiles/bitstr.dir/build
-.PHONY : bitstr/fast
+test_bitstream/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_bitstream.dir/build.make CMakeFiles/test_bitstream.dir/build
+.PHONY : test_bitstream/fast
+
+#=============================================================================
+# Target rules for targets named encoder
+
+# Build rule for target.
+encoder: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 encoder
+.PHONY : encoder
+
+# fast build rule for target.
+encoder/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/encoder.dir/build.make CMakeFiles/encoder.dir/build
+.PHONY : encoder/fast
+
+#=============================================================================
+# Target rules for targets named decoder
+
+# Build rule for target.
+decoder: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 decoder
+.PHONY : decoder
+
+# fast build rule for target.
+decoder/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/decoder.dir/build.make CMakeFiles/decoder.dir/build
+.PHONY : decoder/fast
+
+decoder.o: decoder.cpp.o
+.PHONY : decoder.o
+
+# target to build an object file
+decoder.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/decoder.dir/build.make CMakeFiles/decoder.dir/decoder.cpp.o
+.PHONY : decoder.cpp.o
+
+decoder.i: decoder.cpp.i
+.PHONY : decoder.i
+
+# target to preprocess a source file
+decoder.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/decoder.dir/build.make CMakeFiles/decoder.dir/decoder.cpp.i
+.PHONY : decoder.cpp.i
+
+decoder.s: decoder.cpp.s
+.PHONY : decoder.s
+
+# target to generate assembly for a file
+decoder.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/decoder.dir/build.make CMakeFiles/decoder.dir/decoder.cpp.s
+.PHONY : decoder.cpp.s
+
+encoder.o: encoder.cpp.o
+.PHONY : encoder.o
+
+# target to build an object file
+encoder.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/encoder.dir/build.make CMakeFiles/encoder.dir/encoder.cpp.o
+.PHONY : encoder.cpp.o
+
+encoder.i: encoder.cpp.i
+.PHONY : encoder.i
+
+# target to preprocess a source file
+encoder.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/encoder.dir/build.make CMakeFiles/encoder.dir/encoder.cpp.i
+.PHONY : encoder.cpp.i
+
+encoder.s: encoder.cpp.s
+.PHONY : encoder.s
+
+# target to generate assembly for a file
+encoder.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/encoder.dir/build.make CMakeFiles/encoder.dir/encoder.cpp.s
+.PHONY : encoder.cpp.s
 
 test_bs.o: test_bs.cpp.o
 .PHONY : test_bs.o
 
 # target to build an object file
 test_bs.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bitstr.dir/build.make CMakeFiles/bitstr.dir/test_bs.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_bitstream.dir/build.make CMakeFiles/test_bitstream.dir/test_bs.cpp.o
 .PHONY : test_bs.cpp.o
 
 test_bs.i: test_bs.cpp.i
@@ -194,7 +268,7 @@ test_bs.i: test_bs.cpp.i
 
 # target to preprocess a source file
 test_bs.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bitstr.dir/build.make CMakeFiles/bitstr.dir/test_bs.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_bitstream.dir/build.make CMakeFiles/test_bitstream.dir/test_bs.cpp.i
 .PHONY : test_bs.cpp.i
 
 test_bs.s: test_bs.cpp.s
@@ -202,7 +276,7 @@ test_bs.s: test_bs.cpp.s
 
 # target to generate assembly for a file
 test_bs.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bitstr.dir/build.make CMakeFiles/bitstr.dir/test_bs.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_bitstream.dir/build.make CMakeFiles/test_bitstream.dir/test_bs.cpp.s
 .PHONY : test_bs.cpp.s
 
 wav_cmp.o: wav_cmp.cpp.o
@@ -309,11 +383,19 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... bitstr"
+	@echo "... decoder"
+	@echo "... encoder"
+	@echo "... test_bitstream"
 	@echo "... wav_cmp"
 	@echo "... wav_cp"
 	@echo "... wav_dct"
 	@echo "... wav_hist"
+	@echo "... decoder.o"
+	@echo "... decoder.i"
+	@echo "... decoder.s"
+	@echo "... encoder.o"
+	@echo "... encoder.i"
+	@echo "... encoder.s"
 	@echo "... test_bs.o"
 	@echo "... test_bs.i"
 	@echo "... test_bs.s"
