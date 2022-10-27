@@ -21,7 +21,9 @@
 						3,
 						4,
 						5,
-						6
+						6,
+						7,
+						8
 					]
 				}
 			],
@@ -42,7 +44,9 @@
 						3,
 						4,
 						5,
-						6
+						6,
+						7,
+						8
 					]
 				}
 			],
@@ -51,21 +55,21 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "decoder::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-decoder-Release-803c60be76026c9205e8.json",
+					"jsonFile" : "target-decoder-Release-09193d9a280c53cca90c.json",
 					"name" : "decoder",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "encoder::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-encoder-Release-8df2c39685491e4cac7c.json",
+					"jsonFile" : "target-encoder-Release-d5d3f28791698103b2eb.json",
 					"name" : "encoder",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "test_bitstream::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-test_bitstream-Release-c733a0264349b7831555.json",
+					"jsonFile" : "target-test_bitstream-Release-da8f9ba1343790a88571.json",
 					"name" : "test_bitstream",
 					"projectIndex" : 0
 				},
@@ -92,9 +96,23 @@
 				},
 				{
 					"directoryIndex" : 0,
+					"id" : "wav_effects::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-wav_effects-Release-a05826b81df3ac690104.json",
+					"name" : "wav_effects",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
 					"id" : "wav_hist::@6890427a1f51a3e7e1df",
 					"jsonFile" : "target-wav_hist-Release-2ad6c7da62812e3ed146.json",
 					"name" : "wav_hist",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "wav_quant::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-wav_quant-Release-96e2a9b6491d15b67564.json",
+					"name" : "wav_quant",
 					"projectIndex" : 0
 				}
 			]

@@ -169,6 +169,32 @@ wav_cmp/fast:
 .PHONY : wav_cmp/fast
 
 #=============================================================================
+# Target rules for targets named wav_quant
+
+# Build rule for target.
+wav_quant: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 wav_quant
+.PHONY : wav_quant
+
+# fast build rule for target.
+wav_quant/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/wav_quant.dir/build.make CMakeFiles/wav_quant.dir/build
+.PHONY : wav_quant/fast
+
+#=============================================================================
+# Target rules for targets named wav_effects
+
+# Build rule for target.
+wav_effects: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 wav_effects
+.PHONY : wav_effects
+
+# fast build rule for target.
+wav_effects/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/wav_effects.dir/build.make CMakeFiles/wav_effects.dir/build
+.PHONY : wav_effects/fast
+
+#=============================================================================
 # Target rules for targets named test_bitstream
 
 # Build rule for target.
@@ -351,6 +377,30 @@ wav_dct.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/wav_dct.dir/build.make CMakeFiles/wav_dct.dir/wav_dct.cpp.s
 .PHONY : wav_dct.cpp.s
 
+wav_eff.o: wav_eff.cpp.o
+.PHONY : wav_eff.o
+
+# target to build an object file
+wav_eff.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/wav_effects.dir/build.make CMakeFiles/wav_effects.dir/wav_eff.cpp.o
+.PHONY : wav_eff.cpp.o
+
+wav_eff.i: wav_eff.cpp.i
+.PHONY : wav_eff.i
+
+# target to preprocess a source file
+wav_eff.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/wav_effects.dir/build.make CMakeFiles/wav_effects.dir/wav_eff.cpp.i
+.PHONY : wav_eff.cpp.i
+
+wav_eff.s: wav_eff.cpp.s
+.PHONY : wav_eff.s
+
+# target to generate assembly for a file
+wav_eff.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/wav_effects.dir/build.make CMakeFiles/wav_effects.dir/wav_eff.cpp.s
+.PHONY : wav_eff.cpp.s
+
 wav_hist.o: wav_hist.cpp.o
 .PHONY : wav_hist.o
 
@@ -375,6 +425,30 @@ wav_hist.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/wav_hist.dir/build.make CMakeFiles/wav_hist.dir/wav_hist.cpp.s
 .PHONY : wav_hist.cpp.s
 
+wav_quant.o: wav_quant.cpp.o
+.PHONY : wav_quant.o
+
+# target to build an object file
+wav_quant.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/wav_quant.dir/build.make CMakeFiles/wav_quant.dir/wav_quant.cpp.o
+.PHONY : wav_quant.cpp.o
+
+wav_quant.i: wav_quant.cpp.i
+.PHONY : wav_quant.i
+
+# target to preprocess a source file
+wav_quant.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/wav_quant.dir/build.make CMakeFiles/wav_quant.dir/wav_quant.cpp.i
+.PHONY : wav_quant.cpp.i
+
+wav_quant.s: wav_quant.cpp.s
+.PHONY : wav_quant.s
+
+# target to generate assembly for a file
+wav_quant.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/wav_quant.dir/build.make CMakeFiles/wav_quant.dir/wav_quant.cpp.s
+.PHONY : wav_quant.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -389,7 +463,9 @@ help:
 	@echo "... wav_cmp"
 	@echo "... wav_cp"
 	@echo "... wav_dct"
+	@echo "... wav_effects"
 	@echo "... wav_hist"
+	@echo "... wav_quant"
 	@echo "... decoder.o"
 	@echo "... decoder.i"
 	@echo "... decoder.s"
@@ -408,9 +484,15 @@ help:
 	@echo "... wav_dct.o"
 	@echo "... wav_dct.i"
 	@echo "... wav_dct.s"
+	@echo "... wav_eff.o"
+	@echo "... wav_eff.i"
+	@echo "... wav_eff.s"
 	@echo "... wav_hist.o"
 	@echo "... wav_hist.i"
 	@echo "... wav_hist.s"
+	@echo "... wav_quant.o"
+	@echo "... wav_quant.i"
+	@echo "... wav_quant.s"
 .PHONY : help
 
 

@@ -80,7 +80,7 @@ class WAVEffec {
         }
       return test;
     }
-    void var_delays(){
+    auto var_delays(){
       std::vector<short> test;
       while(ind<all_samples.size()){
         if(ind>=delay){

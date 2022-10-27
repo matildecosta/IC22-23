@@ -5,10 +5,10 @@ To test:
 	../sndfile-example-bin/wav_cp sample.wav copy.wav // copies "sample.wav" into "copy.wav"
 	../sndfile-example-bin/wav_hist sample.wav 0 // outputs the histogram of channel 0 (left)
 	../sndfile-example-bin/wav_dct sample.wav out.wav // generates a DCT "compressed" version
-	../sndfile-example-bin/test_bitstream test_txt.txt test_bin.bin -r	// to test the bitstream in reading mode // reads all bin file
-	../sndfile-example-bin/test_bitstream test_txt.txt test_bin.bin -w	// to test the bitstream in writing mode // writes all txt file
-	../sndfile-example-bin/encoder test_txt.txt test_bin.bin 	// to implememt the encoding system (-w)	// Nbits or all
-	../sndfile-example-bin/decoder test_txt.txt test_bin.bin 	// to implememt the decoding system (-r)	// Nbits or all
+	../sndfile-example-bin/test_bitstream test_txt.txt test_bin.bin -r // test bitstream in reading mode - reads all bin file
+	../sndfile-example-bin/test_bitstream test_txt.txt test_bin.bin -w // to test the bitstream in writing mode - writes all txt file
+	../sndfile-example-bin/encoder test_txt.txt test_bin.bin // to implememt the encoding system (-w) - Nbits or all
+	../sndfile-example-bin/decoder test_txt.txt test_bin.bin  // to implememt the decoding system (-r) - Nbits or all
 
 To view .bin files:
 	od -x < [filename].bin
