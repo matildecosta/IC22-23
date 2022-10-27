@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <sndfile.hh>
-#include "wav_quant.h"
+#include "wav_eff.h"
 
 using namespace std;
 
@@ -11,7 +11,7 @@ int main(int argc, char *argv[]) {
 
 	bool verbose { false };
 
-	if(argc < 3) {
+	if(argc < 2) {
 		cerr << "Usage: wav_cp [ -v (verbose) ]\n";
 		cerr << "              wavFileIn wavFileOut\n";
 		return 1;
@@ -23,7 +23,7 @@ int main(int argc, char *argv[]) {
 			break;
 		}
 
-	SndfileHandle sfhIn { argv[argc-3] };
+	SndfileHandle sfhIn { argv[argc-2] };
 	if(sfhIn.error()) {
 		cerr << "Error: invalid input file\n";
 		return 1;
@@ -46,24 +46,25 @@ int main(int argc, char *argv[]) {
 		cout << '\t' << sfhIn.channels() << " channels\n";
 	}
 //////////////////////////////////////////////////////////////////////////
-
 	size_t nFrames;	//formato size_t frequentemente usado para ciclos iteradores 
 	vector<short> samples(FRAMES_BUFFER_SIZE * sfhIn.channels());
-	WavQuant quant { sfhIn };
-    SndfileHandle sfhOut { argv[argc-2], SFM_WRITE, sfhIn.format(),
+	WAVEffec effect;
+	effect.set_alpha(stod(argv[argc-1]));
+	vector<short> effects;
+    SndfileHandle sfhecho { "echo.wav", SFM_WRITE, sfhIn.format(),
+	  sfhIn.channels(), sfhIn.samplerate() };
+	SndfileHandle sfhmultiecho { "multi_echo.wav", SFM_WRITE, sfhIn.format(),
+	  sfhIn.channels(), sfhIn.samplerate() };
+	SndfileHandle sfhampmod { "amp_mod.wav", SFM_WRITE, sfhIn.format(),
 	  sfhIn.channels(), sfhIn.samplerate() };
 	while((nFrames = sfhIn.readf(samples.data(), FRAMES_BUFFER_SIZE))) {     //
-		samples.resize(nFrames * sfhIn.channels());	//redimensiona o vector para o número de elementos restantes. Vai ler FRAMES_BUFFER_SIZE de cada vez, 
-														//no entanto no final o nº de elementos 
-														//restantes pode ser mais pequeno daí precisar de limitar o tamanho do vector, para não haver sobreposição de dados
-
-        //a quantização é feita às partes
-        //precisava de saber os valores max e min do sinal para poder fazer por intervalos
-        //no entanto eu sei os valoes maximos que uma varivel do tipo  short pode tomar, podendo deste modo reduzir o nº de bits usados
-        //O problema é que posso acabar por usar um intervalo de amostras muito maior do que o que realmente é importante degradando demasiado o sinal
-        //quant.quantizacao(samples);
-        sfhOut.writef(quant.quantizacao(atof(argv[argc-1]),samples),nFrames);    
-		
-	}
+		samples.resize(nFrames * sfhIn.channels());	
+        effect.readdata(samples);
+		sfhecho.writef(effect.echo().data(),nFrames);
+		sfhmultiecho.writef(effect.multi_echo().data(),nFrames);
+		sfhampmod.writef(effect.mod_ampli().data(),nFrames);
+	} 
+    //effect.printinfo(); -- usei só para testar
+    //sfhOut.writef(effect.echo(atof(samples),nFrames);    
 	return 0;
 }
