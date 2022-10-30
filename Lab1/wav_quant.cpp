@@ -55,16 +55,7 @@ int main(int argc, char *argv[]) {
 	while((nFrames = sfhIn.readf(samples.data(), FRAMES_BUFFER_SIZE))) {    
 		samples.resize(nFrames * sfhIn.channels());	
 
-<<<<<<< Updated upstream
-        sfhOut.writef(quant.quantizacao(atof(argv[argc-1]),samples),nFrames);    
-=======
-        //a quantização é feita às partes
-        //precisava de saber os valores max e min do sinal para poder fazer por intervalos
-        //no entanto eu sei os valoes maximos que uma varivel do tipo  short pode tomar, podendo deste modo reduzir o nº de bits usados
-        //O problema é que posso acabar por usar um intervalo de amostras muito maior do que o que realmente é importante degradando demasiado o sinal
-        //quant.quantizacao(samples);
         sfhOut.writef(quant.quantizacao(atof(argv[argc-1]),samples).data(),nFrames);    
->>>>>>> Stashed changes
 		
 	}
 	return 0;
