@@ -102,7 +102,7 @@ int main (int argc, char* argv[]){
 	cout << "Quantizacao do canal 1 feita com sucesso!" << endl;
 	for (int i = 0; i < x_dct[0].size(); i++) {
 		for (int j = 0; j < 8; j++){
-			arr[j] = (x_dct[0][i] >> j) & 0x01;
+			arr[j] = (x_dct[0][i] >> (7-j)) & 0x01;
 		}
 		b1Out.writeN_bits(8, arr);
 	}
@@ -114,7 +114,7 @@ int main (int argc, char* argv[]){
 	out_dct.quantizacao(8, x_dct[1]);	// quantiza os coefs do canal 2
 	for (int i = 0; i < x_dct[1].size(); i++) {
 		for (int j = 0; j < 8; j++){
-			arr[j] = (x_dct[1][i] >> j) & 0x01;
+			arr[j] = (x_dct[1][i] >> (7-j)) & 0x01;
 		}
 		b2Out.writeN_bits(8, arr);
 	}
