@@ -7,15 +7,16 @@
 #include <vector>
 #include <sndfile.hh>
 #include <math.h>
+#include <stdlib.h> 
 
 class WAVEffec {
   private:
     std::vector<short> all_samples;
-    size_t ind = 0, ind_mult = 0, ind_amp = 0;
+    size_t ind = 0, ind_mult = 0, ind_amp = 0, ind_muldel=0;
     double alpha = 0.5;
-    size_t delay = 88200;  //atraso de 1 segundo
-    int freq = 2; //Hz
-    int freqam = 44100;  //Hz
+    size_t delay = 88200;   //atraso de 1 segundo
+    int freq = 2;           //Hz
+    int freqam = 44100;     //Hz
 
   public:
     void set_alpha(double x){
@@ -30,7 +31,6 @@ class WAVEffec {
             all_samples.push_back(samples[i]);
             i++;
         }
-            //std::cout << count << "\n";
 
     }
     void printinfo(){
@@ -57,8 +57,8 @@ class WAVEffec {
     auto multi_echo(){
       std::vector<short> test;
       while(ind_mult<all_samples.size()){
-        if(ind_mult>=delay){ //eco de 1 segundo
-          if(ind_mult>=(delay*2)){      //eco de 2 segundos
+        if(ind_mult>=delay){ 
+          if(ind_mult>=(delay*2)){
             test.push_back((all_samples[ind_mult]+alpha*all_samples[ind_mult-delay]+alpha*all_samples[ind_mult-(delay*2)])/(2+alpha));  
           }           
           else{
@@ -82,14 +82,17 @@ class WAVEffec {
     }
     auto var_delays(){
       std::vector<short> test;
-      while(ind<all_samples.size()){
-        if(ind>=delay){
-          test.push_back((all_samples[ind]+alpha*all_samples[ind-delay])/(1+alpha));
-        }
-        else{
-          test.push_back(all_samples[ind]);
-        }
-        ind++;
+      int random;
+      if(ind_muldel>0)
+          random = rand()%ind_muldel;
+      else{
+          random = 0;
+      } 
+        
+      while(ind_muldel<all_samples.size()){  
+                  
+          test.push_back((all_samples[ind_muldel]+alpha*all_samples[ind_muldel-random])/(1+alpha));
+          ind_muldel++;
       }
       return test;          
     }

@@ -10,7 +10,7 @@
 class WavQuant{
     private:
         std::vector<std::map<short, size_t>> counts;
-        double max = 32767,min=-32768; //limitações de uma variável do tipo short
+        double max = 32767,min=-32768; // limitações de uma variável do tipo short
 
     public:
         WavQuant(const SndfileHandle& sfh) {
@@ -18,7 +18,7 @@ class WavQuant{
 	    }
         auto quantizacao(int bits, std::vector<short>& samples){
             int niveis = pow(2,bits);                       // numero de intervalos para estes bits
-            double int_niveis = abs((max-min)/niveis);      //intervalo entre cada nivel
+            double int_niveis = abs((max-min)/niveis);      // intervalo entre cada nivel
             int i;
             double dist;
             std::cout << niveis << "  " << int_niveis << '\n';

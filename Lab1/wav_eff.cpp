@@ -13,7 +13,7 @@ int main(int argc, char *argv[]) {
 
 	if(argc < 2) {
 		cerr << "Usage: wav_cp [ -v (verbose) ]\n";
-		cerr << "              wavFileIn wavFileOut\n";
+		cerr << "              wavFileIn alpha\n";
 		return 1;
 	}
 
@@ -46,7 +46,7 @@ int main(int argc, char *argv[]) {
 		cout << '\t' << sfhIn.channels() << " channels\n";
 	}
 //////////////////////////////////////////////////////////////////////////
-	size_t nFrames;	//formato size_t frequentemente usado para ciclos iteradores 
+	size_t nFrames;
 	vector<short> samples(FRAMES_BUFFER_SIZE * sfhIn.channels());
 	WAVEffec effect;
 	effect.set_alpha(stod(argv[argc-1]));
@@ -57,14 +57,15 @@ int main(int argc, char *argv[]) {
 	  sfhIn.channels(), sfhIn.samplerate() };
 	SndfileHandle sfhampmod { "amp_mod.wav", SFM_WRITE, sfhIn.format(),
 	  sfhIn.channels(), sfhIn.samplerate() };
-	while((nFrames = sfhIn.readf(samples.data(), FRAMES_BUFFER_SIZE))) {     //
+	SndfileHandle sfhmultd { "mult_delays.wav", SFM_WRITE, sfhIn.format(),
+	  sfhIn.channels(), sfhIn.samplerate() };  
+	while((nFrames = sfhIn.readf(samples.data(), FRAMES_BUFFER_SIZE))) {   
 		samples.resize(nFrames * sfhIn.channels());	
         effect.readdata(samples);
 		sfhecho.writef(effect.echo().data(),nFrames);
 		sfhmultiecho.writef(effect.multi_echo().data(),nFrames);
 		sfhampmod.writef(effect.mod_ampli().data(),nFrames);
-	} 
-    //effect.printinfo(); -- usei só para testar
-    //sfhOut.writef(effect.echo(atof(samples),nFrames);    
+		sfhmultd.writef(effect.var_delays().data(),nFrames);
+	}  
 	return 0;
 }

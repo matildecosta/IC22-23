@@ -48,11 +48,9 @@ int main(int argc, char *argv[]) {
 		hist.update(samples);
 		hist.average(samples);
 		hist.difference(samples);
-
 		
 	}
-
-	//hist.dump(channel);
+	hist.dump(0);
 	hist.show_result();
 	return 0;
 }

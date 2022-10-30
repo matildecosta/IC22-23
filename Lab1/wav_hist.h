@@ -33,21 +33,13 @@ class WAVHist {
 		int i = 1,count;
 		double mean;
 		std::vector<double> mean_values;
-		std::ofstream outfile ("test_sum.txt");
-		//std:: cout << counts.size()<< std::endl;
 		while(i < samples.size()){
 			if(i%2 == 1){
 				mean = (samples[i-1] + samples[i])/2;
 				mean_values.push_back(mean);
-				//std::cout << mean << std::endl;
-				//std::cout << samples[i] << std::endl;
-				outfile << mean << std::endl;
 				}
 				i++;
 		}
-		outfile.close();
-
-		//contagem das repetições das médias
 		for(int i=0; i<mean_values.size(); i++){
 			count = 0;
 			for(int j=0; j<mean_values.size(); j++){
@@ -60,7 +52,7 @@ class WAVHist {
 						results_sum[mean_values[i]] += count;
 					}
 					mean_values.erase(mean_values.begin()+j);
-					j--;	//correção de remover um elemento	
+					j--;
 					
 				}
 
@@ -73,21 +65,13 @@ class WAVHist {
 	void difference(const std::vector<short>& samples){
 		int i = 1;
 		std::vector<double> mean_values;
-		std::ofstream outfile ("test_diff.txt");
-		//std:: cout << counts.size()<< std::endl;
 		while(i < samples.size()){
 			if(i%2 == 1){
 				double mean = (samples[i-1] - samples[i])/2;
 				mean_values.push_back(mean);
-				//std::cout << mean << std::endl;
-				//std::cout << samples[i] << std::endl;
-				outfile << mean << std::endl;
 				}
 				i++;
 		}
-		outfile.close();
-		
-		//contagem das repetições das médias
 		int count;
 		for(int i=0; i<mean_values.size(); i++){
 			count = 0;
@@ -101,7 +85,7 @@ class WAVHist {
 						results_diff[mean_values[i]] += count;
 					}
 					mean_values.erase(mean_values.begin()+j);
-					j--;	//correção de remover um elemento	
+					j--;
 					
 				}
 
@@ -116,20 +100,12 @@ class WAVHist {
 		for (auto itr = results_sum.begin(); itr != results_sum.end(); ++itr) {
         	outfile1 << itr->first << '\t';
 			outfile1 << itr->second << '\n';
-			// for(int i =0;i<itr->second;i++){
-			// 	outfile1 << "*";
-			// }
-			// outfile1 << '\n';
     	}
 		outfile1.close();
 
 		std::ofstream outfile2 ("hist_diff.txt");
 		for (auto itr = results_diff.begin(); itr != results_diff.end(); ++itr) {
         	outfile2 << itr->first << '\t';
-			// for(int i =0;i<itr->second;i++){
-			// 	outfile2 << "*";
-			// }
-			// outfile2 << '\n';
 			outfile2 << itr->second << '\n';
     	}
 		outfile2.close();
