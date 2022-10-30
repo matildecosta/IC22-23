@@ -9,7 +9,6 @@ constexpr size_t FRAMES_BUFFER_SIZE = 65536; // Buffer for reading frames
 
 int main(int argc, char *argv[]) {
 
-// ruben - Parte de verificação do ficheiro fornecido pelo utilizador
 	if(argc < 3) {
 		cerr << "Usage: " << argv[0] << " <input file> <channel>\n";
 		return 1;
@@ -38,13 +37,11 @@ int main(int argc, char *argv[]) {
 	}
 //////////////////////////////////////////////////////////////////////////
 
-	size_t nFrames;	//formato size_t frequentemente usado para ciclos iteradores 
+	size_t nFrames;
 	vector<short> samples(FRAMES_BUFFER_SIZE * sndFile.channels());
 	WAVHist hist { sndFile };
-	while((nFrames = sndFile.readf(samples.data(), FRAMES_BUFFER_SIZE))) {     //
-		samples.resize(nFrames * sndFile.channels());	//redimensiona o vector para o número de elementos restantes. Vai ler FRAMES_BUFFER_SIZE de cada vez, 
-														//no entanto no final o nº de elementos 
-														//restantes pode ser mais pequeno daí precisar de limitar o tamanho do vector, para não haver sobreposição de dados
+	while((nFrames = sndFile.readf(samples.data(), FRAMES_BUFFER_SIZE))) {    
+		samples.resize(nFrames * sndFile.channels());	
 		hist.update(samples);
 		hist.average(samples);
 		hist.difference(samples);
