@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/matilde/Desktop/IC/Lab1
+CMAKE_SOURCE_DIR = /home/matilde/Desktop/IC/IC-Lab/Lab1
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/matilde/Desktop/IC/Lab1/build
+CMAKE_BINARY_DIR = /home/matilde/Desktop/IC/IC-Lab/Lab1/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/matilde/Desktop/IC/Lab1/build/CMakeFiles /home/matilde/Desktop/IC/Lab1/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/matilde/Desktop/IC/IC-Lab/Lab1/build/CMakeFiles /home/matilde/Desktop/IC/IC-Lab/Lab1/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/matilde/Desktop/IC/Lab1/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/matilde/Desktop/IC/IC-Lab/Lab1/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -233,6 +233,19 @@ decoder/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/decoder.dir/build.make CMakeFiles/decoder.dir/build
 .PHONY : decoder/fast
 
+#=============================================================================
+# Target rules for targets named ex8
+
+# Build rule for target.
+ex8: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ex8
+.PHONY : ex8
+
+# fast build rule for target.
+ex8/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ex8.dir/build.make CMakeFiles/ex8.dir/build
+.PHONY : ex8/fast
+
 decoder.o: decoder.cpp.o
 .PHONY : decoder.o
 
@@ -280,6 +293,30 @@ encoder.s: encoder.cpp.s
 encoder.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/encoder.dir/build.make CMakeFiles/encoder.dir/encoder.cpp.s
 .PHONY : encoder.cpp.s
+
+ex8.o: ex8.cpp.o
+.PHONY : ex8.o
+
+# target to build an object file
+ex8.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ex8.dir/build.make CMakeFiles/ex8.dir/ex8.cpp.o
+.PHONY : ex8.cpp.o
+
+ex8.i: ex8.cpp.i
+.PHONY : ex8.i
+
+# target to preprocess a source file
+ex8.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ex8.dir/build.make CMakeFiles/ex8.dir/ex8.cpp.i
+.PHONY : ex8.cpp.i
+
+ex8.s: ex8.cpp.s
+.PHONY : ex8.s
+
+# target to generate assembly for a file
+ex8.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ex8.dir/build.make CMakeFiles/ex8.dir/ex8.cpp.s
+.PHONY : ex8.cpp.s
 
 test_bs.o: test_bs.cpp.o
 .PHONY : test_bs.o
@@ -459,6 +496,7 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... decoder"
 	@echo "... encoder"
+	@echo "... ex8"
 	@echo "... test_bitstream"
 	@echo "... wav_cmp"
 	@echo "... wav_cp"
@@ -472,6 +510,9 @@ help:
 	@echo "... encoder.o"
 	@echo "... encoder.i"
 	@echo "... encoder.s"
+	@echo "... ex8.o"
+	@echo "... ex8.i"
+	@echo "... ex8.s"
 	@echo "... test_bs.o"
 	@echo "... test_bs.i"
 	@echo "... test_bs.s"

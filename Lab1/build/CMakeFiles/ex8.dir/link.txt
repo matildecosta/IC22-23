@@ -1,0 +1,1 @@
+/usr/bin/c++  -Wall -Wextra -std=c++17 -O3 CMakeFiles/ex8.dir/ex8.cpp.o -o /home/matilde/Desktop/IC/IC-Lab/sndfile-example-bin/ex8  -lsndfile -lfftw3 

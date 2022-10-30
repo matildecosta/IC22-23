@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/matilde/Desktop/IC/sndfile-example-bin/wav_effects"
-  "/home/matilde/Desktop/IC/sndfile-example-bin/wav_effects.pdb"
+  "/home/matilde/Desktop/IC/IC-Lab/sndfile-example-bin/wav_effects"
+  "/home/matilde/Desktop/IC/IC-Lab/sndfile-example-bin/wav_effects.pdb"
   "CMakeFiles/wav_effects.dir/wav_eff.cpp.o"
   "CMakeFiles/wav_effects.dir/wav_eff.cpp.o.d"
 )

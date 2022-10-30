@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/matilde/Desktop/IC/Lab1/encoder.cpp" "CMakeFiles/encoder.dir/encoder.cpp.o" "gcc" "CMakeFiles/encoder.dir/encoder.cpp.o.d"
+  "/home/matilde/Desktop/IC/IC-Lab/Lab1/encoder.cpp" "CMakeFiles/encoder.dir/encoder.cpp.o" "gcc" "CMakeFiles/encoder.dir/encoder.cpp.o.d"
   )
 
 # Targets to which this target links.

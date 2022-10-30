@@ -34,3 +34,6 @@ add_executable (test_bitstream test_bs.cpp)
 add_executable(encoder encoder.cpp)
 
 add_executable (decoder decoder.cpp)
+
+add_executable(ex8 ex8.cpp)
+target_link_libraries (ex8 sndfile fftw3)

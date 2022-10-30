@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/matilde/Desktop/IC/sndfile-example-bin/decoder"
-  "/home/matilde/Desktop/IC/sndfile-example-bin/decoder.pdb"
+  "/home/matilde/Desktop/IC/IC-Lab/sndfile-example-bin/decoder"
+  "/home/matilde/Desktop/IC/IC-Lab/sndfile-example-bin/decoder.pdb"
   "CMakeFiles/decoder.dir/decoder.cpp.o"
   "CMakeFiles/decoder.dir/decoder.cpp.o.d"
 )

@@ -52,4 +52,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/test_bitstream.dir/DependInfo.cmake"
   "CMakeFiles/encoder.dir/DependInfo.cmake"
   "CMakeFiles/decoder.dir/DependInfo.cmake"
+  "CMakeFiles/ex8.dir/DependInfo.cmake"
   )

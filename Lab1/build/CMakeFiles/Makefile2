@@ -54,10 +54,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/matilde/Desktop/IC/Lab1
+CMAKE_SOURCE_DIR = /home/matilde/Desktop/IC/IC-Lab/Lab1
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/matilde/Desktop/IC/Lab1/build
+CMAKE_BINARY_DIR = /home/matilde/Desktop/IC/IC-Lab/Lab1/build
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -72,6 +72,7 @@ all: CMakeFiles/wav_effects.dir/all
 all: CMakeFiles/test_bitstream.dir/all
 all: CMakeFiles/encoder.dir/all
 all: CMakeFiles/decoder.dir/all
+all: CMakeFiles/ex8.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -88,6 +89,7 @@ clean: CMakeFiles/wav_effects.dir/clean
 clean: CMakeFiles/test_bitstream.dir/clean
 clean: CMakeFiles/encoder.dir/clean
 clean: CMakeFiles/decoder.dir/clean
+clean: CMakeFiles/ex8.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -97,14 +99,14 @@ clean: CMakeFiles/decoder.dir/clean
 CMakeFiles/wav_cp.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/wav_cp.dir/build.make CMakeFiles/wav_cp.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/wav_cp.dir/build.make CMakeFiles/wav_cp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/matilde/Desktop/IC/Lab1/build/CMakeFiles --progress-num=9,10 "Built target wav_cp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/matilde/Desktop/IC/IC-Lab/Lab1/build/CMakeFiles --progress-num=11,12 "Built target wav_cp"
 .PHONY : CMakeFiles/wav_cp.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/wav_cp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/matilde/Desktop/IC/Lab1/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/matilde/Desktop/IC/IC-Lab/Lab1/build/CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/wav_cp.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/matilde/Desktop/IC/Lab1/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/matilde/Desktop/IC/IC-Lab/Lab1/build/CMakeFiles 0
 .PHONY : CMakeFiles/wav_cp.dir/rule
 
 # Convenience name for target.
@@ -123,14 +125,14 @@ CMakeFiles/wav_cp.dir/clean:
 CMakeFiles/wav_hist.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/wav_hist.dir/build.make CMakeFiles/wav_hist.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/wav_hist.dir/build.make CMakeFiles/wav_hist.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/matilde/Desktop/IC/Lab1/build/CMakeFiles --progress-num=15,16 "Built target wav_hist"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/matilde/Desktop/IC/IC-Lab/Lab1/build/CMakeFiles --progress-num=17,18 "Built target wav_hist"
 .PHONY : CMakeFiles/wav_hist.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/wav_hist.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/matilde/Desktop/IC/Lab1/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/matilde/Desktop/IC/IC-Lab/Lab1/build/CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/wav_hist.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/matilde/Desktop/IC/Lab1/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/matilde/Desktop/IC/IC-Lab/Lab1/build/CMakeFiles 0
 .PHONY : CMakeFiles/wav_hist.dir/rule
 
 # Convenience name for target.
@@ -149,14 +151,14 @@ CMakeFiles/wav_hist.dir/clean:
 CMakeFiles/wav_dct.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/wav_dct.dir/build.make CMakeFiles/wav_dct.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/wav_dct.dir/build.make CMakeFiles/wav_dct.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/matilde/Desktop/IC/Lab1/build/CMakeFiles --progress-num=11,12 "Built target wav_dct"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/matilde/Desktop/IC/IC-Lab/Lab1/build/CMakeFiles --progress-num=13,14 "Built target wav_dct"
 .PHONY : CMakeFiles/wav_dct.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/wav_dct.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/matilde/Desktop/IC/Lab1/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/matilde/Desktop/IC/IC-Lab/Lab1/build/CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/wav_dct.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/matilde/Desktop/IC/Lab1/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/matilde/Desktop/IC/IC-Lab/Lab1/build/CMakeFiles 0
 .PHONY : CMakeFiles/wav_dct.dir/rule
 
 # Convenience name for target.
@@ -175,14 +177,14 @@ CMakeFiles/wav_dct.dir/clean:
 CMakeFiles/wav_cmp.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/wav_cmp.dir/build.make CMakeFiles/wav_cmp.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/wav_cmp.dir/build.make CMakeFiles/wav_cmp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/matilde/Desktop/IC/Lab1/build/CMakeFiles --progress-num=7,8 "Built target wav_cmp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/matilde/Desktop/IC/IC-Lab/Lab1/build/CMakeFiles --progress-num=9,10 "Built target wav_cmp"
 .PHONY : CMakeFiles/wav_cmp.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/wav_cmp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/matilde/Desktop/IC/Lab1/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/matilde/Desktop/IC/IC-Lab/Lab1/build/CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/wav_cmp.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/matilde/Desktop/IC/Lab1/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/matilde/Desktop/IC/IC-Lab/Lab1/build/CMakeFiles 0
 .PHONY : CMakeFiles/wav_cmp.dir/rule
 
 # Convenience name for target.
@@ -201,14 +203,14 @@ CMakeFiles/wav_cmp.dir/clean:
 CMakeFiles/wav_quant.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/wav_quant.dir/build.make CMakeFiles/wav_quant.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/wav_quant.dir/build.make CMakeFiles/wav_quant.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/matilde/Desktop/IC/Lab1/build/CMakeFiles --progress-num=17,18 "Built target wav_quant"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/matilde/Desktop/IC/IC-Lab/Lab1/build/CMakeFiles --progress-num=19,20 "Built target wav_quant"
 .PHONY : CMakeFiles/wav_quant.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/wav_quant.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/matilde/Desktop/IC/Lab1/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/matilde/Desktop/IC/IC-Lab/Lab1/build/CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/wav_quant.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/matilde/Desktop/IC/Lab1/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/matilde/Desktop/IC/IC-Lab/Lab1/build/CMakeFiles 0
 .PHONY : CMakeFiles/wav_quant.dir/rule
 
 # Convenience name for target.
@@ -227,14 +229,14 @@ CMakeFiles/wav_quant.dir/clean:
 CMakeFiles/wav_effects.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/wav_effects.dir/build.make CMakeFiles/wav_effects.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/wav_effects.dir/build.make CMakeFiles/wav_effects.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/matilde/Desktop/IC/Lab1/build/CMakeFiles --progress-num=13,14 "Built target wav_effects"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/matilde/Desktop/IC/IC-Lab/Lab1/build/CMakeFiles --progress-num=15,16 "Built target wav_effects"
 .PHONY : CMakeFiles/wav_effects.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/wav_effects.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/matilde/Desktop/IC/Lab1/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/matilde/Desktop/IC/IC-Lab/Lab1/build/CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/wav_effects.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/matilde/Desktop/IC/Lab1/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/matilde/Desktop/IC/IC-Lab/Lab1/build/CMakeFiles 0
 .PHONY : CMakeFiles/wav_effects.dir/rule
 
 # Convenience name for target.
@@ -253,14 +255,14 @@ CMakeFiles/wav_effects.dir/clean:
 CMakeFiles/test_bitstream.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_bitstream.dir/build.make CMakeFiles/test_bitstream.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_bitstream.dir/build.make CMakeFiles/test_bitstream.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/matilde/Desktop/IC/Lab1/build/CMakeFiles --progress-num=5,6 "Built target test_bitstream"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/matilde/Desktop/IC/IC-Lab/Lab1/build/CMakeFiles --progress-num=7,8 "Built target test_bitstream"
 .PHONY : CMakeFiles/test_bitstream.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/test_bitstream.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/matilde/Desktop/IC/Lab1/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/matilde/Desktop/IC/IC-Lab/Lab1/build/CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/test_bitstream.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/matilde/Desktop/IC/Lab1/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/matilde/Desktop/IC/IC-Lab/Lab1/build/CMakeFiles 0
 .PHONY : CMakeFiles/test_bitstream.dir/rule
 
 # Convenience name for target.
@@ -279,14 +281,14 @@ CMakeFiles/test_bitstream.dir/clean:
 CMakeFiles/encoder.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/encoder.dir/build.make CMakeFiles/encoder.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/encoder.dir/build.make CMakeFiles/encoder.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/matilde/Desktop/IC/Lab1/build/CMakeFiles --progress-num=3,4 "Built target encoder"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/matilde/Desktop/IC/IC-Lab/Lab1/build/CMakeFiles --progress-num=3,4 "Built target encoder"
 .PHONY : CMakeFiles/encoder.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/encoder.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/matilde/Desktop/IC/Lab1/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/matilde/Desktop/IC/IC-Lab/Lab1/build/CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/encoder.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/matilde/Desktop/IC/Lab1/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/matilde/Desktop/IC/IC-Lab/Lab1/build/CMakeFiles 0
 .PHONY : CMakeFiles/encoder.dir/rule
 
 # Convenience name for target.
@@ -305,14 +307,14 @@ CMakeFiles/encoder.dir/clean:
 CMakeFiles/decoder.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/decoder.dir/build.make CMakeFiles/decoder.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/decoder.dir/build.make CMakeFiles/decoder.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/matilde/Desktop/IC/Lab1/build/CMakeFiles --progress-num=1,2 "Built target decoder"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/matilde/Desktop/IC/IC-Lab/Lab1/build/CMakeFiles --progress-num=1,2 "Built target decoder"
 .PHONY : CMakeFiles/decoder.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/decoder.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/matilde/Desktop/IC/Lab1/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/matilde/Desktop/IC/IC-Lab/Lab1/build/CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/decoder.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/matilde/Desktop/IC/Lab1/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/matilde/Desktop/IC/IC-Lab/Lab1/build/CMakeFiles 0
 .PHONY : CMakeFiles/decoder.dir/rule
 
 # Convenience name for target.
@@ -323,6 +325,32 @@ decoder: CMakeFiles/decoder.dir/rule
 CMakeFiles/decoder.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/decoder.dir/build.make CMakeFiles/decoder.dir/clean
 .PHONY : CMakeFiles/decoder.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/ex8.dir
+
+# All Build rule for target.
+CMakeFiles/ex8.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ex8.dir/build.make CMakeFiles/ex8.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ex8.dir/build.make CMakeFiles/ex8.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/matilde/Desktop/IC/IC-Lab/Lab1/build/CMakeFiles --progress-num=5,6 "Built target ex8"
+.PHONY : CMakeFiles/ex8.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/ex8.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/matilde/Desktop/IC/IC-Lab/Lab1/build/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/ex8.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/matilde/Desktop/IC/IC-Lab/Lab1/build/CMakeFiles 0
+.PHONY : CMakeFiles/ex8.dir/rule
+
+# Convenience name for target.
+ex8: CMakeFiles/ex8.dir/rule
+.PHONY : ex8
+
+# clean rule for target.
+CMakeFiles/ex8.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ex8.dir/build.make CMakeFiles/ex8.dir/clean
+.PHONY : CMakeFiles/ex8.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

@@ -1,1 +1,1 @@
-/usr/bin/c++  -Wall -Wextra -std=c++17 -O3 CMakeFiles/encoder.dir/encoder.cpp.o -o /home/matilde/Desktop/IC/sndfile-example-bin/encoder 
+/usr/bin/c++  -Wall -Wextra -std=c++17 -O3 CMakeFiles/encoder.dir/encoder.cpp.o -o /home/matilde/Desktop/IC/IC-Lab/sndfile-example-bin/encoder 

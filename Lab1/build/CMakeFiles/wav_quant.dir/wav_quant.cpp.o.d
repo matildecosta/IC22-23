@@ -1,6 +1,6 @@
 CMakeFiles/wav_quant.dir/wav_quant.cpp.o: \
- /home/matilde/Desktop/IC/Lab1/wav_quant.cpp /usr/include/stdc-predef.h \
- /usr/include/c++/11/iostream \
+ /home/matilde/Desktop/IC/IC-Lab/Lab1/wav_quant.cpp \
+ /usr/include/stdc-predef.h /usr/include/c++/11/iostream \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -155,7 +155,7 @@ CMakeFiles/wav_quant.dir/wav_quant.cpp.o: \
  /usr/include/c++/11/bits/stl_vector.h \
  /usr/include/c++/11/bits/stl_bvector.h \
  /usr/include/c++/11/bits/vector.tcc /usr/include/sndfile.hh \
- /usr/include/sndfile.h /home/matilde/Desktop/IC/Lab1/wav_quant.h \
+ /usr/include/sndfile.h /home/matilde/Desktop/IC/IC-Lab/Lab1/wav_quant.h \
  /usr/include/c++/11/map /usr/include/c++/11/bits/stl_tree.h \
  /usr/include/c++/11/ext/aligned_buffer.h \
  /usr/include/c++/11/bits/node_handle.h \

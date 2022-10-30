@@ -1,6 +1,6 @@
 CMakeFiles/wav_hist.dir/wav_hist.cpp.o: \
- /home/matilde/Desktop/IC/Lab1/wav_hist.cpp /usr/include/stdc-predef.h \
- /usr/include/c++/11/iostream \
+ /home/matilde/Desktop/IC/IC-Lab/Lab1/wav_hist.cpp \
+ /usr/include/stdc-predef.h /usr/include/c++/11/iostream \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -155,7 +155,7 @@ CMakeFiles/wav_hist.dir/wav_hist.cpp.o: \
  /usr/include/c++/11/bits/stl_vector.h \
  /usr/include/c++/11/bits/stl_bvector.h \
  /usr/include/c++/11/bits/vector.tcc /usr/include/sndfile.hh \
- /usr/include/sndfile.h /home/matilde/Desktop/IC/Lab1/wav_hist.h \
+ /usr/include/sndfile.h /home/matilde/Desktop/IC/IC-Lab/Lab1/wav_hist.h \
  /usr/include/c++/11/fstream /usr/include/c++/11/bits/codecvt.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \

@@ -9,6 +9,7 @@ To test:
 	../sndfile-example-bin/test_bitstream test_txt.txt test_bin.bin -w // to test the bitstream in writing mode - writes all txt file
 	../sndfile-example-bin/encoder test_txt.txt test_bin.bin // to implememt the encoding system (-w) - Nbits or all
 	../sndfile-example-bin/decoder test_txt.txt test_bin.bin  // to implememt the decoding system (-r) - Nbits or all
+	../sndfile-example-bin/ex8 wavFileIn wavFileOut // to test the codec in exercise 8
 
 To view .bin files:
 	od -x < [filename].bin

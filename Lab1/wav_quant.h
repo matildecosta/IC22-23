@@ -16,6 +16,10 @@ class WavQuant{
         WavQuant(const SndfileHandle& sfh) {
 		counts.resize(sfh.channels());
 	    }
+
+        WavQuant(){
+        }
+
         auto quantizacao(int bits, std::vector<short>& samples){
             int niveis = pow(2,bits);                       // numero de intervalos para estes bits
             double int_niveis = abs((max-min)/niveis);      // intervalo entre cada nivel
@@ -31,12 +35,10 @@ class WavQuant{
                         break;
                     }
                     i++;
-                    
                 } 
             }
-            return samples.data();
+            return samples;
         }
-
     
 };
 

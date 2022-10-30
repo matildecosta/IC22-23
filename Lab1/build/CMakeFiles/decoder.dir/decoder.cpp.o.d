@@ -1,6 +1,6 @@
 CMakeFiles/decoder.dir/decoder.cpp.o: \
- /home/matilde/Desktop/IC/Lab1/decoder.cpp /usr/include/stdc-predef.h \
- /usr/include/c++/11/iostream \
+ /home/matilde/Desktop/IC/IC-Lab/Lab1/decoder.cpp \
+ /usr/include/stdc-predef.h /usr/include/c++/11/iostream \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -155,8 +155,8 @@ CMakeFiles/decoder.dir/decoder.cpp.o: \
  /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
  /usr/include/c++/11/bits/fstream.tcc \
- /home/matilde/Desktop/IC/Lab1/BitStream.h /usr/include/c++/11/vector \
- /usr/include/c++/11/bits/stl_uninitialized.h \
+ /home/matilde/Desktop/IC/IC-Lab/Lab1/BitStream.h \
+ /usr/include/c++/11/vector /usr/include/c++/11/bits/stl_uninitialized.h \
  /usr/include/c++/11/bits/stl_vector.h \
  /usr/include/c++/11/bits/stl_bvector.h \
  /usr/include/c++/11/bits/vector.tcc
