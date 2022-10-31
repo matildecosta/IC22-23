@@ -108,7 +108,6 @@ int main (int argc, char* argv[]){
 	}
 	b1Out.close();
 
-	
 	//Canal 2:
 	BitStream b2Out("bit2.bin", "w");
 	out_dct.quantizacao(8, x_dct[1]);	// quantiza os coefs do canal 2
