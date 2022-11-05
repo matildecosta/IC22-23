@@ -129,6 +129,19 @@ copy/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/copy.dir/build.make CMakeFiles/copy.dir/build
 .PHONY : copy/fast
 
+#=============================================================================
+# Target rules for targets named ex2
+
+# Build rule for target.
+ex2: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ex2
+.PHONY : ex2
+
+# fast build rule for target.
+ex2/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ex2.dir/build.make CMakeFiles/ex2.dir/build
+.PHONY : ex2/fast
+
 copy.o: copy.cpp.o
 .PHONY : copy.o
 
@@ -153,6 +166,30 @@ copy.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/copy.dir/build.make CMakeFiles/copy.dir/copy.cpp.s
 .PHONY : copy.cpp.s
 
+ex2.o: ex2.cpp.o
+.PHONY : ex2.o
+
+# target to build an object file
+ex2.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ex2.dir/build.make CMakeFiles/ex2.dir/ex2.cpp.o
+.PHONY : ex2.cpp.o
+
+ex2.i: ex2.cpp.i
+.PHONY : ex2.i
+
+# target to preprocess a source file
+ex2.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ex2.dir/build.make CMakeFiles/ex2.dir/ex2.cpp.i
+.PHONY : ex2.cpp.i
+
+ex2.s: ex2.cpp.s
+.PHONY : ex2.s
+
+# target to generate assembly for a file
+ex2.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ex2.dir/build.make CMakeFiles/ex2.dir/ex2.cpp.s
+.PHONY : ex2.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -162,9 +199,13 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... copy"
+	@echo "... ex2"
 	@echo "... copy.o"
 	@echo "... copy.i"
 	@echo "... copy.s"
+	@echo "... ex2.o"
+	@echo "... ex2.i"
+	@echo "... ex2.s"
 .PHONY : help
 
 

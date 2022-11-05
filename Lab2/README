@@ -3,4 +3,4 @@ To build:
 
 To test:
 	./opencv-example-bin/copy inFile.ppm outFile.ppm // To copy inFile into outFile
-	
+	./opencv-example-bin/ex2 inFile.ppm outFile.ppm // To edit inFile into outFile (editing options in UI)	
