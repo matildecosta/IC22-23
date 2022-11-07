@@ -8,7 +8,6 @@ using namespace cv;
 
 int main (int argc, char** argv)
 {
-
     if (argc != 3)
     {
         cout << "Usage: ./copy <inFile_Path> <outFile _Path>" << endl;

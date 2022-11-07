@@ -9,6 +9,13 @@ using namespace cv;
 
 int main (int argc, char** argv)
 {
+
+    if (argc != 3)
+    {
+        cout << "Usage: ./copy <inFile_Path> <outFile _Path>" << endl;
+        return -1;
+    }
+
     int op = 0;
     int op2 = 0;
     Mat in = imread(argv[argc-2],IMREAD_COLOR);
