@@ -67,7 +67,7 @@ int main (int argc, char** argv)
         for (int j = 0; j < in.rows; j++){
                 for (int k = 0; k < in.cols; k++){
                     for (int i = 0; i < ch; i++){
-                        out.at<Vec3b>(in.rows-j,k)[i] = in.at<Vec3b>(j,k)[i];
+                        out.at<Vec3b>(in.rows-j-1,k)[i] = in.at<Vec3b>(j,k)[i];
                     }
                 }
             }
@@ -93,7 +93,7 @@ int main (int argc, char** argv)
             for (int j = 0; j < in.rows; j++){
                 for (int k = 0; k < in.cols; k++){
                     for (int i = 0; i < ch; i++){
-                        out.at<Vec3b>(in.rows-j,in.cols-k)[i] = in.at<Vec3b>(j,k)[i];
+                        out.at<Vec3b>(in.rows-j-1,in.cols-k-1)[i] = in.at<Vec3b>(j,k)[i];
                     }
                 }
             }
@@ -104,7 +104,7 @@ int main (int argc, char** argv)
             for (int j = 0; j < in.rows; j++){
                 for (int k = 0; k < in.cols; k++){
                     for (int i = 0; i < ch; i++){
-                        out.at<Vec3b>(in.cols-k,j)[i] = in.at<Vec3b>(j,k)[i];
+                        out.at<Vec3b>(in.cols-k-1,j)[i] = in.at<Vec3b>(j,k)[i];
                     }
                 }
             }
