@@ -6,5 +6,5 @@ CXX_DEFINES =
 
 CXX_INCLUDES = -isystem /usr/local/include/opencv4
 
-CXX_FLAGS =  -Wall -Wextra -std=c++17 -O3
+CXX_FLAGS =  -Wall -Wextra -std=c++17 -g3 -fsanitize=address
 

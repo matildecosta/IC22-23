@@ -8,6 +8,13 @@ using namespace cv;
 
 int main (int argc, char** argv)
 {
+
+    if (argc != 3)
+    {
+        cout << "Usage: ./copy <inFile_Path> <outFile _Path>" << endl;
+        return -1;
+    }
+
     Mat image;
     image = imread(argv[argc-2], IMREAD_COLOR );
 
