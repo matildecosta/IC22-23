@@ -39,21 +39,24 @@ class Golomb{
             }
         }
 
+        int decode(){
+            int q = 0;
+            int r = 0;
+            int bit = 0;
 
+            while(bit != 0){    // leitura do quociente
+                bit = bs.read_bit();
+                q++;
+            }
+            q--;    // porque ele ainda dá o incremento ao ler o zero do stop
 
+            for(int i=base-1; i>=0; i--){ // leitura do resto
+                bit = bs.read_bit();
+                r += bit<<i;
+            }
 
-
-
-        int decode(int n){
-            int b = ceil(log2(m));
-            int k = pow(2,b) - m;
-            int q = n/b;
-            int r = n%b;
-            int a = r < k ? r : r - k;
-            int c = a + (q*m);
-            return c;
+            return q*m + r;
         }
-
 };
 
 #endif

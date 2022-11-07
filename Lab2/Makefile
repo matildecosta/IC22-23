@@ -4,3 +4,4 @@ all:
 
 clean:
 	rm -rf build /opencv-example-bin
+	rm -rf build /CMakeCache.txt
