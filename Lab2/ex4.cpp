@@ -19,6 +19,7 @@ int main (int argc, char** argv)
     Mat in = imread(argv[argc-2],IMREAD_COLOR);
     Mat out;
 
+    
 
     imwrite(argv[argc-1], out);
     imshow("Display window", out);
