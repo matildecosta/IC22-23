@@ -11,14 +11,15 @@ using namespace cv;
 int main (int argc, char** argv)
 {
 
-    if (argc < 3 )
+    if (argc < 5)
     {
-        cout << "Usage: ./copy <inFile_Path> <mode(w or r)> <inteiro a descodificar>" << endl;
+        cout << "Usage: ./copy <inFile_Path> <mode(w or r)> <m> <int to encode>" << endl;
         return -1;
     } 
-    std::string mode = argv[argc-2];
+    std::string mode = argv[argc-3];
     int num = stoi(argv[argc-1]);
-    Golomb gol(4,argv[argc-3],mode);
+    int m = stoi(argv[argc-2]);
+    Golomb gol(m,argv[argc-4],mode);
     if(mode == "r"){
         gol.decode();
     }

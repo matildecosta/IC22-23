@@ -19,4 +19,7 @@ target_link_libraries (copy ${OpenCV_LIBS})
 add_executable (ex2 ex2.cpp)
 target_link_libraries (ex2 ${OpenCV_LIBS})
 
+add_executable (ex3 ex3.cpp)
+target_link_libraries (ex3 ${OpenCV_LIBS})
+
 

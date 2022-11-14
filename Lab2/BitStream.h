@@ -44,8 +44,24 @@ class BitStream {
             std::cout << "Bin file opened" << std::endl;
         }
 
-        void nameFile(std::string filename){
-            myFile.open(filename);
+        void nameFile(std::string filename, std::string m){
+            mode = m;
+            if (mode == "r"){
+                myFile.open(filename, std::ios::in | std::ios::binary);
+                myFile.seekg (0);
+            }
+            else if (mode == "w"){
+                myFile.open(filename, std::ios::out | std::ios::binary);
+                myFile.seekp (0);
+            }
+            if (!myFile.is_open()){
+                std::cerr << "Error opening file " << filename << std::endl;
+                exit(1);
+            }
+            myFile.clear();
+            counter = 0;
+            bit_buffer = 0;
+            std::cout << "Bin file opened" << std::endl;
             counter = 0;
         }
 
