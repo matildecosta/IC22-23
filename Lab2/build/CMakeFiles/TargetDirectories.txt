@@ -1,4 +1,4 @@
-/home/matilde/Desktop/IC/IC-Lab/Lab2/build/CMakeFiles/copy.dir
-/home/matilde/Desktop/IC/IC-Lab/Lab2/build/CMakeFiles/ex2.dir
-/home/matilde/Desktop/IC/IC-Lab/Lab2/build/CMakeFiles/edit_cache.dir
-/home/matilde/Desktop/IC/IC-Lab/Lab2/build/CMakeFiles/rebuild_cache.dir
+/home/saldanha/Desktop/MECT/IC/IC22-23/Lab2/build/CMakeFiles/copy.dir
+/home/saldanha/Desktop/MECT/IC/IC22-23/Lab2/build/CMakeFiles/ex2.dir
+/home/saldanha/Desktop/MECT/IC/IC22-23/Lab2/build/CMakeFiles/edit_cache.dir
+/home/saldanha/Desktop/MECT/IC/IC22-23/Lab2/build/CMakeFiles/rebuild_cache.dir
