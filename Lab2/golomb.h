@@ -49,13 +49,13 @@ class Golomb{
             }
             bs.write_bit(0);
             std::cout << "i = " << i << endl;
-            if(r<x){ //representação normal
+            if(r<(pow(2,base+1)-m)){ //representação normal b bits
                 for(int j=i+1; j<i+base; j++){ // código binário do resto
                     bs.write_bit(((r)>>((base+i-1)-j))& 0x01);
                     //bs.write_bit(0x01);
                 }
             }
-            else{
+            else{ // b+1 bits 
                 for(int j=i; j<i+base; j++){ // código binário do resto
                     bs.write_bit(((r+x)>>((base+i-1)-j))& 0x01);
                 }
