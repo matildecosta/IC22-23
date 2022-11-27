@@ -1,5 +1,5 @@
 CMakeFiles/copy.dir/copy.cpp.o: \
- /home/saldanha/Desktop/MECT/IC/IC22-23/Lab2/copy.cpp \
+ /home/saldanha/Desktop/MECT/Projetos/IC/IC22-23/Lab2/copy.cpp \
  /usr/include/stdc-predef.h /usr/include/c++/11/iostream \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \

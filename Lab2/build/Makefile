@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/saldanha/Desktop/MECT/IC/IC22-23/Lab2
+CMAKE_SOURCE_DIR = /home/saldanha/Desktop/MECT/Projetos/IC/IC22-23/Lab2
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/saldanha/Desktop/MECT/IC/IC22-23/Lab2/build
+CMAKE_BINARY_DIR = /home/saldanha/Desktop/MECT/Projetos/IC/IC22-23/Lab2/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/saldanha/Desktop/MECT/IC/IC22-23/Lab2/build/CMakeFiles /home/saldanha/Desktop/MECT/IC/IC22-23/Lab2/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/saldanha/Desktop/MECT/Projetos/IC/IC22-23/Lab2/build/CMakeFiles /home/saldanha/Desktop/MECT/Projetos/IC/IC22-23/Lab2/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/saldanha/Desktop/MECT/IC/IC22-23/Lab2/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/saldanha/Desktop/MECT/Projetos/IC/IC22-23/Lab2/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -154,6 +154,43 @@ ex3: cmake_check_build_system
 ex3/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ex3.dir/build.make CMakeFiles/ex3.dir/build
 .PHONY : ex3/fast
+
+#=============================================================================
+# Target rules for targets named ex4
+
+# Build rule for target.
+ex4: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ex4
+.PHONY : ex4
+
+# fast build rule for target.
+ex4/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ex4.dir/build.make CMakeFiles/ex4.dir/build
+.PHONY : ex4/fast
+
+codec4.o: codec4.cpp.o
+.PHONY : codec4.o
+
+# target to build an object file
+codec4.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ex4.dir/build.make CMakeFiles/ex4.dir/codec4.cpp.o
+.PHONY : codec4.cpp.o
+
+codec4.i: codec4.cpp.i
+.PHONY : codec4.i
+
+# target to preprocess a source file
+codec4.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ex4.dir/build.make CMakeFiles/ex4.dir/codec4.cpp.i
+.PHONY : codec4.cpp.i
+
+codec4.s: codec4.cpp.s
+.PHONY : codec4.s
+
+# target to generate assembly for a file
+codec4.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ex4.dir/build.make CMakeFiles/ex4.dir/codec4.cpp.s
+.PHONY : codec4.cpp.s
 
 copy.o: copy.cpp.o
 .PHONY : copy.o
@@ -238,6 +275,10 @@ help:
 	@echo "... copy"
 	@echo "... ex2"
 	@echo "... ex3"
+	@echo "... ex4"
+	@echo "... codec4.o"
+	@echo "... codec4.i"
+	@echo "... codec4.s"
 	@echo "... copy.o"
 	@echo "... copy.i"
 	@echo "... copy.s"

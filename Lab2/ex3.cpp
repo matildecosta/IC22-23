@@ -25,7 +25,12 @@ int main (int argc, char** argv)
     }
     else{
         gol.encode(num);
+        // std::cout  << endl;
+        gol.encode(2);
+        // std::cout  << endl;
+        gol.encode(1);
     }
+    gol.close();
     //Golomb gol(4,argv[argc-2],argv[argc-1]);
     //gol.encode(4);
     //gol.decode();

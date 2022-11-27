@@ -17,9 +17,19 @@ class Golomb{
         std::string mode;
 
     public:
-        Golomb();
+        Golomb(){
+        }
 
         Golomb(int parameter, std::string file, std::string md){
+            m = parameter;
+            mode = md;
+            //bs.set_mode(md);
+            bs.nameFile(file,mode);
+            base = ceil(log2(m));      // só é importante caso m não seja potência de 2
+            x = pow(2,base)-m;
+        }
+
+        void set(int parameter, std::string file, std::string md){
             m = parameter;
             mode = md;
             //bs.set_mode(md);
@@ -48,9 +58,9 @@ class Golomb{
                 bs.write_bit(1);
             }
             bs.write_bit(0);
-            std::cout << "i = " << i << endl;
+            // std::cout << "i = " << i << endl;
             if(r<(pow(2,base+1)-m)){ //representação normal b bits
-                for(int j=i+1; j<i+base; j++){ // código binário do resto
+                for(int j=i; j<i+base; j++){ // código binário do resto
                     bs.write_bit(((r)>>((base+i-1)-j))& 0x01);
                     //bs.write_bit(0x01);
                 }
@@ -60,11 +70,10 @@ class Golomb{
                     bs.write_bit(((r+x)>>((base+i-1)-j))& 0x01);
                 }
             }
-            bs.close();
         }
 
         int decode(){
-            std::cout << "x = " << x << endl;
+            //std::cout << "x = " << x << endl;
             int q = 0;
             int r = 0;
 
@@ -77,7 +86,7 @@ class Golomb{
                 //cout << bit << endl;
                 i++;
             }
-            std::cout << "i = " << i << endl;
+            // std::cout << "i = " << i << endl;
             if(inf[0] == 1) flag = true;
             if(inf[1] == 0) !qzero;
             i =1;
@@ -87,16 +96,16 @@ class Golomb{
                  i++;
             }
             i++;
-            // se o numero for menor que x
+            // std::cout << "i = " << i << endl;
+            // std::cout << "base = " << base << endl;
             for(int j = i; j<(i+base); j++){ // leitura do resto
                 r += inf[j]<<((i+base-1)-j);
-                //std::cout << inf[i];
             }
-            if(r>x*2){ //b bits de representaçao
-                r -= x;
+            if(r < (pow(2,base+1)-m)){ //b bits de representaçao
+                //mantem-se
             }
-            else{ // (b-1)bits de representaçao
-                r = r >>1;
+            else{ // (b+1)bits de representaçao
+                r = r - pow(2,base+1)+m;
             }
             std::cout << "q = " << q << endl;
             std::cout << "r = " << r << endl;
@@ -112,6 +121,10 @@ class Golomb{
         bool IsPowerOfTwo(ulong x)
         {
             return (x & (x - 1)) == 0;
+        }
+
+        void close(){
+            bs.close();
         }
 };
 

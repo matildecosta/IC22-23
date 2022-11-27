@@ -1,5 +1,5 @@
 CMakeFiles/ex2.dir/ex2.cpp.o: \
- /home/saldanha/Desktop/MECT/IC/IC22-23/Lab2/ex2.cpp \
+ /home/saldanha/Desktop/MECT/Projetos/IC/IC22-23/Lab2/ex2.cpp \
  /usr/include/stdc-predef.h /usr/include/c++/11/iostream \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \

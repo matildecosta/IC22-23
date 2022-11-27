@@ -1,5 +1,5 @@
 CMakeFiles/ex3.dir/ex3.cpp.o: \
- /home/saldanha/Desktop/MECT/IC/IC22-23/Lab2/ex3.cpp \
+ /home/saldanha/Desktop/MECT/Projetos/IC/IC22-23/Lab2/ex3.cpp \
  /usr/include/stdc-predef.h /usr/include/c++/11/iostream \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
@@ -349,8 +349,8 @@ CMakeFiles/ex3.dir/ex3.cpp.o: \
  /usr/include/opencv4/opencv2/video/tracking.hpp \
  /usr/include/opencv4/opencv2/video/background_segm.hpp \
  /usr/include/opencv4/opencv2/highgui/highgui.hpp \
- /home/saldanha/Desktop/MECT/IC/IC22-23/Lab2/golomb.h \
- /home/saldanha/Desktop/MECT/IC/IC22-23/Lab2/BitStream.h \
+ /home/saldanha/Desktop/MECT/Projetos/IC/IC22-23/Lab2/golomb.h \
+ /home/saldanha/Desktop/MECT/Projetos/IC/IC22-23/Lab2/BitStream.h \
  /usr/include/c++/11/fstream \
  /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \

@@ -11,11 +11,11 @@ int main(int argc, char *argv[]) {
 
 	bool verbose { false };
 
-	if(argc < 3) {
-		cerr << "Usage: wav_quant [ -v (verbose) ]\n";
-		cerr << "              wavFileIn wavFileOut bits\n";
-		return 1;
-	}
+	// if(argc < 3) {
+	// 	cerr << "Usage: wav_quant [ -v (verbose) ]\n";
+	// 	cerr << "              wavFileIn wavFileOut bits\n";
+	// 	return 1;
+	// }
 
 	for(int n = 1 ; n < argc ; n++)
 		if(string(argv[n]) == "-v") {
@@ -23,7 +23,7 @@ int main(int argc, char *argv[]) {
 			break;
 		}
 
-	SndfileHandle sfhIn { argv[argc-3] };
+	SndfileHandle sfhIn { argv[argc-1] };
 	if(sfhIn.error()) {
 		cerr << "Error: invalid input file\n";
 		return 1;
@@ -50,26 +50,33 @@ int main(int argc, char *argv[]) {
 	size_t nFrames;
 	vector<short> samples(FRAMES_BUFFER_SIZE * sfhIn.channels());
 
-	SndfileHandle mod0 { "mod0.wav", SFM_WRITE, sfhIn.format(),
-	sfhIn.channels(), sfhIn.samplerate() };
-	SndfileHandle mod1 { "mod1.wav", SFM_WRITE, sfhIn.format(),
-	sfhIn.channels(), sfhIn.samplerate() };
-	SndfileHandle mod2 { "mod2.wav", SFM_WRITE, sfhIn.format(),
-	sfhIn.channels(), sfhIn.samplerate() };
-	SndfileHandle mod3 { "mod3.wav", SFM_WRITE, sfhIn.format(),
-	sfhIn.channels(), sfhIn.samplerate() };
+	// SndfileHandle mod0 { "mod0.wav", SFM_WRITE, sfhIn.format(),
+	// sfhIn.channels(), sfhIn.samplerate() };
+	// SndfileHandle mod1 { "mod1.wav", SFM_WRITE, sfhIn.format(),
+	// sfhIn.channels(), sfhIn.samplerate() };
+	// SndfileHandle mod2 { "mod2.wav", SFM_WRITE, sfhIn.format(),
+	// sfhIn.channels(), sfhIn.samplerate() };
+	// SndfileHandle mod3 { "mod3.wav", SFM_WRITE, sfhIn.format(),
+	// sfhIn.channels(), sfhIn.samplerate() };
 
 	Codec4  codec;
-    SndfileHandle sfhOut { argv[argc-2], SFM_WRITE, sfhIn.format(),
-	  sfhIn.channels(), sfhIn.samplerate() };
 	while((nFrames = sfhIn.readf(samples.data(), FRAMES_BUFFER_SIZE))) {    
 		samples.resize(nFrames * sfhIn.channels());	
         codec.readdata(samples);
-        mod0.writef(codec.mode0().data(),nFrames);   
-		mod1.writef(codec.mode1().data(),nFrames);  
-		mod2.writef(codec.mode2().data(),nFrames);  
-		mod3.writef(codec.mode3().data(),nFrames);   
-		
+        codec.mode0();  
+		codec.mode1();  
+		codec.mode2();  
+		codec.mode3(); 
 	}
+	codec.end();	//close files
+
+	//descodificação
+	SndfileHandle Inmod0 { "mod0.bin" };
+	SndfileHandle Inmod1 { "mod1.bin" };
+	SndfileHandle Inmod2 { "mod2.bin" };
+	SndfileHandle Inmod3 { "mod3.bin" };
+	codec.set_read();
+	codec.desmod0(FRAMES_BUFFER_SIZE);
+
 	return 0;
 }
