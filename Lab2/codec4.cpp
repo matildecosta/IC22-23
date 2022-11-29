@@ -46,37 +46,89 @@ int main(int argc, char *argv[]) {
 		cout << '\t' << sfhIn.channels() << " channels\n";
 	}
 //////////////////////////////////////////////////////////////////////////
-
+	int op = 0; 
+	vector<short> values;
+	SndfileHandle mod0 ;
+	SndfileHandle mod1 ;
+	SndfileHandle mod2 ;
+	SndfileHandle mod3 ;
+	int quant;
+	cout << "What mod do you want to do?" << endl;
+    cout << "      0. mod0" << endl;
+    cout << "      1. mod1" << endl;
+    cout << "      2. mod2" << endl;
+    cout << "      3. mod3" << endl;
+    cout << "      4. Increase the intensity" << endl;
+    cout << "      5. Decrease the intensity" << endl;
+    cin >> op;
 	size_t nFrames;
 	vector<short> samples(FRAMES_BUFFER_SIZE * sfhIn.channels());
+	Codec4  codec(op);
+	switch (op)
+	{
+		case 0:
+			mod0 = { "mod0.wav", SFM_WRITE, sfhIn.format(),	sfhIn.channels(), sfhIn.samplerate() };
+			std::cout << "Number of quantization bits (0 if no quantization is needed): ";
+			cin >> quant;
+			while((nFrames = sfhIn.readf(samples.data(), FRAMES_BUFFER_SIZE))) {    
+				samples.resize(nFrames * sfhIn.channels());	
+				codec.readdata(samples);
+				codec.mode0(quant);  
+			}
+			codec.end();
+			codec.set_read();
+			values = codec.desmod0();
+			mod0.writef(values.data(),values.size()/2); 
+			break;
 
-	// SndfileHandle mod0 { "mod0.wav", SFM_WRITE, sfhIn.format(),
-	// sfhIn.channels(), sfhIn.samplerate() };
-	// SndfileHandle mod1 { "mod1.wav", SFM_WRITE, sfhIn.format(),
-	// sfhIn.channels(), sfhIn.samplerate() };
-	// SndfileHandle mod2 { "mod2.wav", SFM_WRITE, sfhIn.format(),
-	// sfhIn.channels(), sfhIn.samplerate() };
-	// SndfileHandle mod3 { "mod3.wav", SFM_WRITE, sfhIn.format(),
-	// sfhIn.channels(), sfhIn.samplerate() };
+		case 1:
+			mod1 = { "mod1.wav", SFM_WRITE, sfhIn.format(),	sfhIn.channels(), sfhIn.samplerate() };
+			std::cout << "Number of quantization bits (0 if no quantization is needed): ";
+			cin >> quant;
+			while((nFrames = sfhIn.readf(samples.data(), FRAMES_BUFFER_SIZE))) {    
+				samples.resize(nFrames * sfhIn.channels());	
+				codec.readdata(samples);
+				codec.mode1(quant);  
+			}
+			codec.end();
+			codec.set_read();
+			values = codec.desmod1();
+			mod1.writef(values.data(),values.size()/2); 
+			break;
 
-	Codec4  codec;
-	while((nFrames = sfhIn.readf(samples.data(), FRAMES_BUFFER_SIZE))) {    
-		samples.resize(nFrames * sfhIn.channels());	
-        codec.readdata(samples);
-        codec.mode0();  
-		codec.mode1();  
-		codec.mode2();  
-		codec.mode3(); 
+		case 2:
+			mod2 = { "mod2.wav", SFM_WRITE, sfhIn.format(),	sfhIn.channels(), sfhIn.samplerate() };
+			std::cout << "Number of quantization bits (0 if no quantization is needed): ";
+			cin >> quant;
+			while((nFrames = sfhIn.readf(samples.data(), FRAMES_BUFFER_SIZE))) {    
+				samples.resize(nFrames * sfhIn.channels());	
+				codec.readdata(samples);
+				codec.mode2(quant);  
+			}
+			codec.end();
+			codec.set_read();
+			values = codec.desmod2();
+			mod2.writef(values.data(),values.size()/2); 
+			break;
+		case 3:
+			mod3 = { "mod3.wav", SFM_WRITE, sfhIn.format(),	sfhIn.channels(), sfhIn.samplerate() };
+			std::cout << "Number of quantization bits (0 if no quantization is needed): ";
+			cin >> quant;
+			while((nFrames = sfhIn.readf(samples.data(), FRAMES_BUFFER_SIZE))) {    
+				samples.resize(nFrames * sfhIn.channels());	
+				codec.readdata(samples);
+				codec.mode3(quant);  
+			}
+			codec.end();
+			codec.set_read();
+			values = codec.desmod3();
+			mod3.writef(values.data(),values.size()/2); 
+			break;
+
+		default:
+        	std::cout << "Not an option!" << endl;
+        	break;
 	}
-	codec.end();	//close files
-
-	//descodificação
-	SndfileHandle Inmod0 { "mod0.bin" };
-	SndfileHandle Inmod1 { "mod1.bin" };
-	SndfileHandle Inmod2 { "mod2.bin" };
-	SndfileHandle Inmod3 { "mod3.bin" };
-	codec.set_read();
-	codec.desmod0(FRAMES_BUFFER_SIZE);
 
 	return 0;
 }

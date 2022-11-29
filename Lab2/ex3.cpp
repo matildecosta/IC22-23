@@ -21,14 +21,17 @@ int main (int argc, char** argv)
     int m = stoi(argv[argc-2]);
     Golomb gol(m,argv[argc-4],mode);
     if(mode == "r"){
-        gol.decode();
+        gol.decode1();
     }
     else{
         gol.encode(num);
         // std::cout  << endl;
         gol.encode(2);
         // std::cout  << endl;
-        gol.encode(1);
+        gol.encode(20);
+        gol.encode(-21);
+        gol.encode(25);
+        gol.encode(30);
     }
     gol.close();
     //Golomb gol(4,argv[argc-2],argv[argc-1]);
