@@ -58,8 +58,6 @@ int main(int argc, char *argv[]) {
     cout << "      1. mod1" << endl;
     cout << "      2. mod2" << endl;
     cout << "      3. mod3" << endl;
-    cout << "      4. Increase the intensity" << endl;
-    cout << "      5. Decrease the intensity" << endl;
     cin >> op;
 	size_t nFrames;
 	vector<short> samples(FRAMES_BUFFER_SIZE * sfhIn.channels());
