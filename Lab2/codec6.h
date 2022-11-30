@@ -17,7 +17,6 @@ class Codec6{
         size_t ind=0;
         double max = 32767,min=-32768; // limitações de uma variável do tipo short
         Golomb  mod0, mod1, mod2, mod3, mod4, mod5;
-        size_t count = 0;
 
     public:
 
@@ -35,12 +34,6 @@ class Codec6{
                     break;
                 case 3:
                     mod3.set(50,"mod3.bin","w");
-                    break;
-                case 4:
-                    mod4.set(50,"mod4.bin","w");
-                    break;
-                case 5:
-                    mod5.set(50,"mod5.bin","w");
                     break;
                 default:
                     break;
@@ -63,13 +56,7 @@ class Codec6{
                     break;
                 case 3:
                     mod3.set(50,"mod3.bin","r");
-                    break;
-                case 4:
-                    mod4.set(50,"mod4.bin","r");
-                    break;
-                case 5:
-                    mod5.set(50,"mod5.bin","r");
-                    break;                    
+                    break;                   
                 default:
                     break;
             }
@@ -89,12 +76,14 @@ class Codec6{
         }
 
         void mode1(){
+            int x_prev = 0;
             for (int j = 0; j < in.rows; j++)
             {
                 for (int k = 0; k < in.cols; k++){ 
                     for (int i = 0; i < ch; i++){
                         if(k > 0){
-                            in.at<Vec3b>(j,k)[i] = in.at<Vec3b>(j,k)[i] - 0.001*in.at<Vec3b>(j,k-1)[i];
+                            x_prev = x1prev(in, k, j, i);
+                            in.at<Vec3b>(j,k)[i] = in.at<Vec3b>(j,k)[i] - x_prev;
                             mod1.encode(in.at<Vec3b>(j,k)[i]);
                         }
                         else{
@@ -107,12 +96,14 @@ class Codec6{
             return ;
         }
         void mode2(){
+            int x_prev = 0;
             for (int j = 0; j < in.rows; j++)
             {
                 for (int k = 0; k < in.cols; k++){  
                     for (int i = 0; i < ch; i++){
-                        if(j > 1){
-                            in.at<Vec3b>(j,k)[i] = in.at<Vec3b>(j,k)[i] - 0.001*in.at<Vec3b>(j-1,k)[i];
+                        if(j > 0){
+                            x_prev = x2prev(in, k, j, i);
+                            in.at<Vec3b>(j,k)[i] = in.at<Vec3b>(j,k)[i] - x_prev;
                             mod2.encode(in.at<Vec3b>(j,k)[i]);
                         }
                         else{
@@ -125,12 +116,14 @@ class Codec6{
             return ;
         }
         void mode3(){
+            int x_prev = 0;
             for (int j = 0; j < in.rows; j++)
             {
-                for (int k = 0; k < in.cols; k++){ 
+                for (int k = 0; k < in.cols; k++){  
                     for (int i = 0; i < ch; i++){
-                        if(j > 1 && k>1){
-                            in.at<Vec3b>(j,k)[i] = in.at<Vec3b>(j,k)[i] - 0.001*in.at<Vec3b>(j-1,k-1)[i];
+                        if(j > 0 && k > 0){
+                            x_prev = x3prev(in, k, j, i);
+                            in.at<Vec3b>(j,k)[i] = in.at<Vec3b>(j,k)[i] - x_prev;
                             mod3.encode(in.at<Vec3b>(j,k)[i]);
                         }
                         else{
@@ -141,48 +134,10 @@ class Codec6{
                 }
             }
             return ;
-        }
-
-        void mode4(){
-            for (int j = 0; j < in.rows; j++)
-            {
-                for (int k = 0; k < in.cols; k++){  
-                    for (int i = 0; i < ch; i++){
-                        if(j > 1 && k>1){
-                            in.at<Vec3b>(j,k)[i] = in.at<Vec3b>(j,k)[i] - (0.001*in.at<Vec3b>(j,k-1)[i] + 0.001*in.at<Vec3b>(j-1,k)[i] - 0.001*in.at<Vec3b>(j-1,k-1)[i]);
-                            mod4.encode(in.at<Vec3b>(j,k)[i]);
-                        }
-                        else{
-                            in.at<Vec3b>(j,k)[i] = in.at<Vec3b>(j,k)[i];
-                            mod4.encode(in.at<Vec3b>(j,k)[i]);
-                        }
-                    }
-                }
-            }
-            return ;
-        }
-
-        void mode5(){
-            for (int j = 0; j < in.rows; j++)
-            {
-                for (int k = 0; k < in.cols; k++){  
-                    for (int i = 0; i < ch; i++){
-                        if(j > 1 && k>1){
-                            in.at<Vec3b>(j,k)[i] = in.at<Vec3b>(j,k)[i] - (0.001*in.at<Vec3b>(j,k-1)[i] + (0.001*in.at<Vec3b>(j-1,k)[i] - 0.001*in.at<Vec3b>(j-1,k-1)[i])/2);
-                            mod5.encode(in.at<Vec3b>(j,k)[i]);
-                        }
-                        else{
-                            in.at<Vec3b>(j,k)[i] = in.at<Vec3b>(j,k)[i];
-                            mod5.encode(in.at<Vec3b>(j,k)[i]);
-                        }
-                    }
-                }
-            }
-            return ;            
         }
 
         void desmod0(){
-            Mat out = Mat::zeros(in.cols, in.rows, CV_8UC3);
+            Mat out = Mat::zeros(in.rows, in.cols, CV_8UC3);
             vector<short> values = mod0.decode();
             int count = 0;
             for (int j = 0; j < in.rows; j++)
@@ -202,9 +157,9 @@ class Codec6{
         }
 
         void desmod1(){
-            Mat out = Mat::zeros(in.cols, in.rows, CV_8UC3);
+            Mat out = Mat::zeros(in.rows, in.cols, CV_8UC3);
             vector<short> values = mod1.decode();
-            int count = 0;
+            int count = 0, x_prev = 0;
             for (int j = 0; j < in.rows; j++)
             {
                 for (int k = 0; k < in.cols; k++){ 
@@ -219,7 +174,8 @@ class Codec6{
                 for (int k = 0; k < in.cols; k++){ 
                     for (int i = 0; i < ch; i++){
                         if(k > 0){
-                            out.at<Vec3b>(j,k)[i] = out.at<Vec3b>(j,k)[i] + 0.001*out.at<Vec3b>(j,k-1)[i];
+                            x_prev = x1prev(out, k, j, i);
+                            out.at<Vec3b>(j,k)[i] = out.at<Vec3b>(j,k)[i] + x_prev;
                         }
                         else{
                             out.at<Vec3b>(j,k)[i] = out.at<Vec3b>(j,k)[i];
@@ -234,9 +190,9 @@ class Codec6{
         }
 
         void desmod2(){
-            Mat out = Mat::zeros(in.cols, in.rows, CV_8UC3);
+            Mat out = Mat::zeros(in.rows, in.cols, CV_8UC3);
             vector<short> values = mod2.decode();
-            int count = 0;
+            int count = 0, x_prev = 0;
             for (int j = 0; j < in.rows; j++)
             {
                 for (int k = 0; k < in.cols; k++){ 
@@ -250,8 +206,9 @@ class Codec6{
             {
                 for (int k = 0; k < in.cols; k++){ 
                     for (int i = 0; i < ch; i++){
-                        if(j > 1){
-                            out.at<Vec3b>(j,k)[i] = out.at<Vec3b>(j,k)[i] + 0.001*out.at<Vec3b>(j-1,k)[i];
+                        if(j > 0){
+                            x_prev = x2prev(out, k, j, i);
+                            out.at<Vec3b>(j,k)[i] = out.at<Vec3b>(j,k)[i] + x_prev;
                         }
                         else{
                             out.at<Vec3b>(j,k)[i] = out.at<Vec3b>(j,k)[i];
@@ -259,7 +216,6 @@ class Codec6{
                     }
                 }
             }
-            std::cout << count << endl;
             imwrite("mod2.ppm", out);
             imshow("Display window", out);
             waitKey(0);
@@ -267,12 +223,13 @@ class Codec6{
         }
 
         void desmod3(){
-            Mat out = Mat::zeros(in.cols, in.rows, CV_8UC3);
+            Mat out = Mat::zeros(in.rows, in.cols, CV_8UC3);
             vector<short> values = mod3.decode();
-            int count = 0;
+            int count = 0, x_prev = 0;
+            int max = 0;
             for (int j = 0; j < in.rows; j++)
             {
-                for (int k = 0; k < in.cols; k++){  //a partir de k=1, pk para k=0 o valor segue inalterado.
+                for (int k = 0; k < in.cols; k++){ 
                     for (int i = 0; i < ch; i++){
                         out.at<Vec3b>(j,k)[i] = values[count];
                         count++;  
@@ -281,85 +238,27 @@ class Codec6{
             } 
             for (int j = 0; j < in.rows; j++)
             {
-                for (int k = 0; k < in.cols; k++){  //a partir de k=1, pk para k=0 o valor segue inalterado.
+                for (int k = 0; k < in.cols; k++){ 
                     for (int i = 0; i < ch; i++){
-                        if(j > 1 && k>1){
-                            out.at<Vec3b>(j,k)[i] = out.at<Vec3b>(j,k)[i] + 0.001*out.at<Vec3b>(j-1,k-1)[i];
+                        if(j > 0 && k > 0){
+                            x_prev = x3prev(out, k, j, i);
+                            out.at<Vec3b>(j,k)[i] = out.at<Vec3b>(j,k)[i] + x_prev;
                         }
                         else{
                             out.at<Vec3b>(j,k)[i] = out.at<Vec3b>(j,k)[i];
                         }
-                    }
-                }
-            }
-            imwrite("mod3.ppm", out);
-            imshow("Display window", out);
-            waitKey(0);
-            return ;  
-        }   
-
-        void desmod4(){
-            Mat out = Mat::zeros(in.cols, in.rows, CV_8UC3);
-            vector<short> values = mod4.decode();
-            int count = 0;
-            for (int j = 0; j < in.rows; j++)
-            {
-                for (int k = 0; k < in.cols; k++){  //a partir de k=1, pk para k=0 o valor segue inalterado.
-                    for (int i = 0; i < ch; i++){
-                        out.at<Vec3b>(j,k)[i] = values[count];
-                        count++;  
-                    }
-                }
-            } 
-            for (int j = 0; j < in.rows; j++)
-            {
-                for (int k = 0; k < in.cols; k++){  //a partir de k=1, pk para k=0 o valor segue inalterado.
-                    for (int i = 0; i < ch; i++){
-                        if(j > 1 && k>1){
-                            out.at<Vec3b>(j,k)[i] = out.at<Vec3b>(j,k)[i] + (0.001*out.at<Vec3b>(j,k-1)[i] + 0.001*out.at<Vec3b>(j-1,k)[i] - 0.001*out.at<Vec3b>(j-1,k-1)[i]);
-                        }
-                        else{
-                            out.at<Vec3b>(j,k)[i] = out.at<Vec3b>(j,k)[i];
+                        if(max < int(out.at<Vec3b>(j,k)[i])){
+                            max = int(out.at<Vec3b>(j,k)[i]);
                         }
                     }
                 }
             }
-            imwrite("mod4.ppm", out);
+            std::cout << "max: " << max << endl;
+            imwrite("mod33.ppm", out);
             imshow("Display window", out);
             waitKey(0);
             return ;  
-        }    
-
-        void desmod5(){
-            Mat out = Mat::zeros(in.cols, in.rows, CV_8UC3);
-            vector<short> values = mod5.decode();
-            for (int j = 0; j < in.rows; j++)
-            {
-                for (int k = 0; k < in.cols; k++){  //a partir de k=1, pk para k=0 o valor segue inalterado.
-                    for (int i = 0; i < ch; i++){
-                        out.at<Vec3b>(j,k)[i] = values[count];
-                        count++;  
-                    }
-                }
-            } 
-            for (int j = 0; j < in.rows; j++)
-            {
-                for (int k = 0; k < in.cols; k++){  //a partir de k=1, pk para k=0 o valor segue inalterado.
-                    for (int i = 0; i < ch; i++){
-                        if(j > 1 && k>1){
-                            in.at<Vec3b>(j,k)[i] = out.at<Vec3b>(j,k)[i] + (0.001*out.at<Vec3b>(j,k-1)[i] + (0.001*out.at<Vec3b>(j-1,k)[i] - 0.001*out.at<Vec3b>(j-1,k-1)[i])/2);
-                        }
-                        else{
-                            out.at<Vec3b>(j,k)[i] = out.at<Vec3b>(j,k)[i];
-                        }
-                    }
-                }
-            }
-            imwrite("mod5.ppm", out);
-            imshow("Display window", out);
-            waitKey(0);
-            return ;  
-        }                    
+        }  
 
         int quantizacao(int bits, int n){
             int niveis = pow(2,bits);                       // numero de intervalos para estes bits
@@ -379,13 +278,36 @@ class Codec6{
             return n;
         }
 
-        void end(){
-            mod0.close();
-            mod1.close();
-            mod2.close();
-            mod3.close();
-            mod4.close();
-            mod5.close();
+        void end(int op){
+            switch(op)
+            {
+                case 0:
+                    mod0.close();
+                    break;
+                case 1:
+                    mod1.close();
+                    break;
+                case 2:
+                    mod2.close();
+                    break;
+                case 3:
+                    mod3.close();
+                    break;
+                default:
+                    break;
+            }  
+        }
+
+        int x1prev(Mat out, int k, int j, int i){
+            return int(10*in.at<Vec3b>(j,k-1)[i]);
+        }
+
+        int x2prev(Mat out, int k, int j, int i){
+            return int(in.at<Vec3b>(j-1,k)[i]);
+        }
+
+        int x3prev(Mat out, int k, int j, int i){
+            return int(out.at<Vec3b>(j-1,k-1)[i]);
         }
     
 };

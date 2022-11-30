@@ -10,7 +10,6 @@
 
 class Codec4{
     private:
-        std::vector<std::map<short, size_t>> counts;
         std::vector<short> all_samples;
         size_t ind=0;
         double max = 32767,min=-32768; // limitações de uma variável do tipo short
@@ -18,24 +17,21 @@ class Codec4{
         size_t count = 0;
 
     public:
-        Codec4(const SndfileHandle& sfh) {
-		counts.resize(sfh.channels());
-	    }
 
         Codec4(int op){
             switch(op)
             {
                 case 0:
-                    mod0.set(1000,"mod0.bin","w");
+                    mod0.set(6767,"mod0.bin","w");
                     break;
                 case 1:
-                    mod1.set(1000,"mod1.bin","w");
+                    mod1.set(6767,"mod1.bin","w");
                     break;
                 case 2:
-                    mod2.set(1000,"mod2.bin","w");
+                    mod2.set(6767,"mod2.bin","w");
                     break;
                 case 3:
-                    mod3.set(1000,"mod3.bin","w");
+                    mod3.set(6767,"mod3.bin","w");
                     break;
                 default:
                     break;
@@ -45,11 +41,24 @@ class Codec4{
             
         }
 
-        void set_read(){
-            mod0.set(1000,"mod0.bin","r");
-            mod1.set(1000,"mod1.bin","r");
-            mod2.set(1000,"mod2.bin","r");
-            mod3.set(1000,"mod3.bin","r");
+        void set_read(int op){
+            switch(op)
+            {
+                case 0:
+                    mod0.set(6767,"mod0.bin","r");
+                    break;
+                case 1:
+                    mod1.set(6767,"mod1.bin","r");
+                    break;
+                case 2:
+                    mod2.set(6767,"mod2.bin","r");
+                    break;
+                case 3:
+                    mod3.set(6767,"mod3.bin","r");
+                    break;
+                default:
+                    break;
+            }
         }
 
         void readdata(std::vector<short> samples){
@@ -58,8 +67,22 @@ class Codec4{
                 all_samples.push_back(samples[i]);
                 i++;
             }
+        }    
 
-        }        
+        void mean(){
+            double total = 0;
+            for(int i = 0; i < all_samples.size(); i++){
+                total += abs(all_samples[i]);
+            }
+            double meann = total/all_samples.size();
+            std::cout << meann << endl;
+            double p = 1/(meann+1);
+            double alpha = (1+sqrt(1-(4*p)))/2;
+            std::cout << p << endl;
+            std::cout << alpha << endl;
+            std::cout << ceil(-1/log(alpha)) << endl;
+
+        }    
 
         void mode0(int quant){
             int tmp;
@@ -238,20 +261,10 @@ class Codec4{
         }
 
         int quantizacao(int bits, int n){
-            int niveis = pow(2,bits);                       // numero de intervalos para estes bits
-            double int_niveis = abs((max-min)/niveis);      // intervalo entre cada nivel
-            int i;
-            double dist;
-            //std::cout << niveis << "  " << int_niveis << '\n';
-            i=0;
-            while(i <= niveis){
-                dist = n-((i*int_niveis)+min);
-                if(dist <= (int_niveis/2) && dist>=0){      //verifica se está a metade do intervalo
-                    n = (i*int_niveis)+min;                 //se estiver a metade arredonda sempre para cima 
-                    break;
-                }
-                i++;
-            } 
+            int b = 16 - bits;
+            n = n >> b;
+            n = n << 16-bits;
+            n = n | (0x1 << (16-bits+1));
             return n;
         }
 

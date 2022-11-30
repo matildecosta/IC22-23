@@ -76,7 +76,8 @@ int main(int argc, char *argv[]) {
 				codec.mode0(quant);  
 			}
 			codec.end();
-			codec.set_read();
+			//codec.mean();
+			codec.set_read(0);
 			values = codec.desmod0();
 			mod0.writef(values.data(),values.size()/2); 
 			break;
@@ -91,7 +92,7 @@ int main(int argc, char *argv[]) {
 				codec.mode1(quant);  
 			}
 			codec.end();
-			codec.set_read();
+			codec.set_read(1);
 			values = codec.desmod1();
 			mod1.writef(values.data(),values.size()/2); 
 			break;
@@ -106,7 +107,7 @@ int main(int argc, char *argv[]) {
 				codec.mode2(quant);  
 			}
 			codec.end();
-			codec.set_read();
+			codec.set_read(2);
 			values = codec.desmod2();
 			mod2.writef(values.data(),values.size()/2); 
 			break;
@@ -120,7 +121,7 @@ int main(int argc, char *argv[]) {
 				codec.mode3(quant);  
 			}
 			codec.end();
-			codec.set_read();
+			codec.set_read(3);
 			values = codec.desmod3();
 			mod3.writef(values.data(),values.size()/2); 
 			break;

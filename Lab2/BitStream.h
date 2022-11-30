@@ -61,7 +61,7 @@ class BitStream {
             myFile.clear();
             counter = 0;
             bit_buffer = 0;
-            std::cout << "Bin file opened" << std::endl;
+            //std::cout << "Bin file opened" << std::endl;
             counter = 0;
         }
 
@@ -78,7 +78,7 @@ class BitStream {
                 //std::cout << "buffer filled" << std::endl;
             }
             if (myFile.eof()){ // Para verificar se o ficheiro acabou, mas depois de fazer a leitura!!
-                std::cout << "end of file" << std::endl;
+                //std::cout << "end of file" << std::endl;
                 return EOF;
             }
             int bit = (bit_buffer >> 7) & 0x01;
@@ -125,7 +125,7 @@ class BitStream {
                 }
             }
             myFile.close();
-            std::cout << "File closed" << std::endl;
+            //std::cout << "File closed" << std::endl;
         }
 };
 
