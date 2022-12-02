@@ -41,7 +41,8 @@ int main (int argc, char** argv)
             codec.mode0();  
             codec.end(0);
             codec.set_read(0);
-            codec.desmod0();            
+            codec.desmod0(); 
+            codec.end(0);           
             break;
 
         case 1: // Mirror horizontally 
