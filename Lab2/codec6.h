@@ -102,7 +102,7 @@ class Codec6{
                 for (int k = 0; k < in.cols; k++){  
                     for (int i = 0; i < ch; i++){
                         if(j > 0){
-                            x_prev = x2prev(in, k, j, i);
+                            x_prev = x2prev(in.at<Vec3b>(j-1,k)[i]);
                             in.at<Vec3b>(j,k)[i] = in.at<Vec3b>(j,k)[i] - x_prev;
                             mod2.encode(in.at<Vec3b>(j,k)[i]);
                         }
@@ -207,7 +207,7 @@ class Codec6{
                 for (int k = 0; k < in.cols; k++){ 
                     for (int i = 0; i < ch; i++){
                         if(j > 0){
-                            x_prev = x2prev(out, k, j, i);
+                            x_prev = x2prev(out.at<Vec3b>(j-1,k)[i]);
                             out.at<Vec3b>(j,k)[i] = out.at<Vec3b>(j,k)[i] + x_prev;
                         }
                         else{
@@ -254,29 +254,11 @@ class Codec6{
                 }
             }
             std::cout << "max: " << max << endl;
-            imwrite("mod33.ppm", out);
+            imwrite("mod3.ppm", out);
             imshow("Display window", out);
             waitKey(0);
             return ;  
         }  
-
-        int quantizacao(int bits, int n){
-            int niveis = pow(2,bits);                       // numero de intervalos para estes bits
-            double int_niveis = abs((max-min)/niveis);      // intervalo entre cada nivel
-            int i;
-            double dist;
-            //std::cout << niveis << "  " << int_niveis << '\n';
-            i=0;
-            while(i <= niveis){
-                dist = n-((i*int_niveis)+min);
-                if(dist <= (int_niveis/2) && dist>=0){      //verifica se está a metade do intervalo
-                    n = (i*int_niveis)+min;                 //se estiver a metade arredonda sempre para cima 
-                    break;
-                }
-                i++;
-            } 
-            return n;
-        }
 
         void end(int op){
             switch(op)
@@ -302,12 +284,12 @@ class Codec6{
             return int(10*in.at<Vec3b>(j,k-1)[i]);
         }
 
-        int x2prev(Mat out, int k, int j, int i){
-            return int(in.at<Vec3b>(j-1,k)[i]);
+        int x2prev(auto x){
+            return int(x);
         }
 
         int x3prev(Mat out, int k, int j, int i){
-            return int(out.at<Vec3b>(j-1,k-1)[i]);
+            return int(in.at<Vec3b>(j-1,k-1)[i]);
         }
     
 };
