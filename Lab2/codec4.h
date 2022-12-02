@@ -12,9 +12,7 @@ class Codec4{
     private:
         std::vector<short> all_samples;
         size_t ind=0;
-        double max = 32767,min=-32768; // limitações de uma variável do tipo short
         Golomb  mod0, mod1, mod2, mod3;
-        size_t count = 0;
 
     public:
 
@@ -85,7 +83,6 @@ class Codec4{
         }    
 
         void mode0(int quant){
-            int tmp;
             while(ind < all_samples.size()){
                 all_samples[ind] = all_samples[ind];
                 if(quant > 0){
@@ -93,17 +90,11 @@ class Codec4{
                 }
                 mod0.encode(all_samples[ind]);
                 ind++;
-                count++;
             }
-            //printf("end0\n");
             return ;
         }
 
         void mode1(int quant){
-            //std::vector<short> test;
-            int tmp;
-            // std::cout << all_samples.size() << endl;
-            // while(1);
             while(ind < all_samples.size()){
                 if(ind > 0){
                     all_samples[ind] = all_samples[ind]-all_samples[ind-1];
@@ -111,7 +102,6 @@ class Codec4{
                         all_samples[ind] = quantizacao(quant, all_samples[ind]);
                     }
                     mod1.encode(all_samples[ind]);
-                    //test.push_back(tmp);
                 }
                 else{
                     all_samples[ind] = all_samples[ind];
@@ -119,16 +109,12 @@ class Codec4{
                         all_samples[ind] = quantizacao(quant, all_samples[ind]);
                     }
                     mod1.encode(all_samples[ind]);
-                    //test.push_back(tmp);
                 }
                 ind++;
             }
-            //printf("end1\n");
             return ;
         }
         void mode2(int quant){
-            //std::vector<short> test;
-            int tmp;
             while(ind < all_samples.size()){
                 if(ind > 1){
                     all_samples[ind] = all_samples[ind]-(2*all_samples[ind-1]-all_samples[ind-2]);
@@ -136,7 +122,6 @@ class Codec4{
                         all_samples[ind] = quantizacao(quant, all_samples[ind]);
                     }
                     mod2.encode(all_samples[ind]);
-                    //test.push_back(tmp);
                 }
                 else if(ind == 0){
                     all_samples[ind] = all_samples[ind];
@@ -144,7 +129,6 @@ class Codec4{
                         all_samples[ind] = quantizacao(quant, all_samples[ind]);
                     }
                     mod2.encode(all_samples[ind]);
-                    //test.push_back(tmp);
                 }
                 else if(ind == 1){
                     all_samples[ind] = all_samples[ind] - 2*all_samples[ind-1];
@@ -152,16 +136,12 @@ class Codec4{
                         all_samples[ind] = quantizacao(quant, all_samples[ind]);
                     }
                     mod2.encode(all_samples[ind]);
-                    //test.push_back(tmp);
                 }
                 ind++;
             }
-            //printf("end2\n");
             return ;
         }
         void mode3(int quant){
-            //std::vector<short> test;
-            int tmp;
             while(ind < all_samples.size()){
                 if(ind > 2){
                     all_samples[ind] = all_samples[ind]-(3*all_samples[ind-1]-3*all_samples[ind-2]+all_samples[ind-3]);
@@ -169,35 +149,30 @@ class Codec4{
                         all_samples[ind] = quantizacao(quant, all_samples[ind]);
                     }
                     mod3.encode(all_samples[ind]);
-                    //test.push_back(all_samples[ind]-(3*all_samples[ind-1]-3*all_samples[ind-2]+all_samples[ind-3]));
-                }
+                    }
                 else if(ind == 0){
                     all_samples[ind] = all_samples[ind];
                     if(quant > 0){
                         all_samples[ind] = quantizacao(quant, all_samples[ind]);
                     }
                     mod3.encode(all_samples[ind]);
-                    //test.push_back(tmp);
-                }
+                    }
                 else if(ind == 1){
                     all_samples[ind] = all_samples[ind] - 3*all_samples[ind-1];
                     if(quant > 0){
                         all_samples[ind] = quantizacao(quant, all_samples[ind]);
                     }
                     mod3.encode(all_samples[ind]);
-                    //test.push_back(tmp);
-                }
+                     }
                 else if(ind == 2){
                     all_samples[ind] = all_samples[ind] - (3*all_samples[ind-1] - 3*all_samples[ind-2]);
                     if(quant > 0){
                         all_samples[ind] = quantizacao(quant, all_samples[ind]);
                     }
                     mod3.encode(all_samples[ind]);
-                    //test.push_back(tmp);
-                }
+                    }
                 ind++; 
             }
-            //printf("end3\n");
             return ;
         }
 
@@ -268,12 +243,26 @@ class Codec4{
             return n;
         }
 
-        void end(){
-            mod0.close();
-            mod1.close();
-            mod2.close();
-            mod3.close();
-        }
+        void end(int op)
+            {
+                switch (op)
+                {
+                case 0:
+                    mod0.close();
+                    break;
+                case 1:
+                    mod1.close();
+                    break;
+                case 2:
+                    mod2.close();
+                    break;
+                case 3:
+                    mod3.close();
+                    break;
+                default:
+                    break;
+                }
+            }
     
 };
 

@@ -13,7 +13,7 @@ int main (int argc, char** argv)
 
     if (argc != 2)
     {
-        cout << "Usage: ./ex6 <inFile_Path.ppm>" << endl;
+        cerr << "Usage: ./ex6 <inFile_Path.ppm>" << endl;
         return -1;
     }
 

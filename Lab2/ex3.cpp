@@ -13,7 +13,7 @@ int main (int argc, char** argv)
 
     if (argc < 4)
     {
-        cout << "Usage: ./ex3 <outFile_Path.bin> <mode(w or r)> <m>" << endl;
+        cerr << "Usage: ./ex3 <outFile_Path.bin> <mode(w or r)> <m>" << endl;
         return -1;
     }
     std::string mode = argv[argc-2];
@@ -27,7 +27,7 @@ int main (int argc, char** argv)
             std::cout << values[i] << endl;
         }
     }
-    else{  //incluir opção de receber mais que um valor 
+    else{ 
         std::cout << "How many numbers for coding? ";
         std::cin >> num;
         for(size_t i=0; i < num; i++){

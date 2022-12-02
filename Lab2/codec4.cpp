@@ -11,17 +11,10 @@ int main(int argc, char *argv[]) {
 
 	bool verbose { false };
 
-	// if(argc < 3) {
-	// 	cerr << "Usage: wav_quant [ -v (verbose) ]\n";
-	// 	cerr << "              wavFileIn wavFileOut bits\n";
-	// 	return 1;
-	// }
-
-	for(int n = 1 ; n < argc ; n++)
-		if(string(argv[n]) == "-v") {
-			verbose = true;
-			break;
-		}
+	if(argc < 2) {
+		cerr << "Usage: ./ex4 <inFile_Path.wav>\n";
+		return 1;
+	}
 
 	SndfileHandle sfhIn { argv[argc-1] };
 	if(sfhIn.error()) {
@@ -54,10 +47,9 @@ int main(int argc, char *argv[]) {
 	SndfileHandle mod3 ;
 	int quant;
 	cout << "What mod do you want to do?" << endl;
-    cout << "      0. mod0" << endl;
-    cout << "      1. mod1" << endl;
-    cout << "      2. mod2" << endl;
-    cout << "      3. mod3" << endl;
+    cout << "      0. mod0		2. mod2" << endl;
+    cout << "      1. mod1		3. mod3" << endl;
+	cout << "R: ";
     cin >> op;
 	size_t nFrames;
 	vector<short> samples(FRAMES_BUFFER_SIZE * sfhIn.channels());
@@ -73,11 +65,12 @@ int main(int argc, char *argv[]) {
 				codec.readdata(samples);
 				codec.mode0(quant);  
 			}
-			codec.end();
+			codec.end(0);
 			//codec.mean();
 			codec.set_read(0);
 			values = codec.desmod0();
 			mod0.writef(values.data(),values.size()/2); 
+			codec.end(0);
 			break;
 
 		case 1:
@@ -89,10 +82,11 @@ int main(int argc, char *argv[]) {
 				codec.readdata(samples);
 				codec.mode1(quant);  
 			}
-			codec.end();
+			codec.end(1);
 			codec.set_read(1);
 			values = codec.desmod1();
 			mod1.writef(values.data(),values.size()/2); 
+			codec.end(1);
 			break;
 
 		case 2:
@@ -104,10 +98,11 @@ int main(int argc, char *argv[]) {
 				codec.readdata(samples);
 				codec.mode2(quant);  
 			}
-			codec.end();
+			codec.end(2);
 			codec.set_read(2);
 			values = codec.desmod2();
 			mod2.writef(values.data(),values.size()/2); 
+			codec.end(2);
 			break;
 		case 3:
 			mod3 = { "mod3.wav", SFM_WRITE, sfhIn.format(),	sfhIn.channels(), sfhIn.samplerate() };
@@ -118,10 +113,11 @@ int main(int argc, char *argv[]) {
 				codec.readdata(samples);
 				codec.mode3(quant);  
 			}
-			codec.end();
+			codec.end(3);
 			codec.set_read(3);
 			values = codec.desmod3();
 			mod3.writef(values.data(),values.size()/2); 
+			codec.end(3);
 			break;
 
 		default:
