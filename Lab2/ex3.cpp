@@ -30,7 +30,7 @@ int main (int argc, char** argv)
     else{ 
         std::cout << "How many numbers for coding? ";
         std::cin >> num;
-        for(size_t i=0; i < num; i++){
+        for(int i=0; i < num; i++){
             int tmp;
             std::cout << "Insert number: ";
             std::cin >> tmp;

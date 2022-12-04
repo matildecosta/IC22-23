@@ -79,7 +79,7 @@ class Golomb{
 
             bool flag = false,qzero = false;
             vector<int> inf;
-            size_t i = 0;
+            int i = 0;
             int bit = 0;
             
             while ((bit = bs.read_bit()) != EOF){

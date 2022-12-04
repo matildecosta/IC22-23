@@ -2,12 +2,11 @@
 #define WAVQUANT_H
 
 #include <iostream>
-#include <vector>
-#include <map>
+#include <string>
 #include <opencv2/opencv.hpp>
 #include <opencv2/imgproc.hpp>
 #include <opencv2/highgui/highgui.hpp>
-#include <math.h>
+//#include <math.h>
 #include "golomb.h"
 using namespace cv;
 class Codec6

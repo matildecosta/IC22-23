@@ -70,7 +70,7 @@ class Codec4{
 
         void mean(){
             double total = 0;
-            for(int i = 0; i < all_samples.size(); i++){
+            for(size_t i = 0; i < all_samples.size(); i++){
                 total += abs(all_samples[i]);
             }
             double meann = total/all_samples.size();
