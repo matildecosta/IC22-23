@@ -66,7 +66,7 @@ class Golomb{
             }
         }
 
-        int decode(){
+        int decode1(){
             //std::cout << "x = " << x << endl;
             int q = 0;
             int r = 0;
@@ -75,6 +75,7 @@ class Golomb{
             vector<int> inf;
             size_t i = 0;
             int bit = 0;
+            
             while ((bit = bs.read_bit()) != EOF){
                 inf.push_back(bit);
                 //cout << bit << endl;
@@ -82,7 +83,7 @@ class Golomb{
             }
             // std::cout << "i = " << i << endl;
             if(inf[0] == 1) flag = true;
-            if(inf[1] == 0) !qzero;
+            if(inf[1] == 0) qzero = true;;
             i =1;
             while((inf[i] != 0) && (qzero != true)){    // leitura do quociente
                  //std::cout << inf[i];
@@ -110,6 +111,61 @@ class Golomb{
                 std::cout << "Inteiro descodificado: " << q*m + r <<endl;
             }
             return 0;
+            //return q*m + r;
+        }
+        auto decode(){
+            //std::cout << "x = " << x << endl;
+            int q = 0;
+            int r = 0;
+
+            bool flag = false, isq = true, first = true;
+            int bit = 0;
+            int j = 0;
+            vector<short> values;
+
+            while ((bit = bs.read_bit()) != EOF){
+                if(isq){
+                    if(first){
+                        if(bit == 1) {flag = true;}
+                        first = false;
+                    }
+                    else if(bit != 0){
+                        q++;
+                    }
+                    else{
+                        isq = false;
+                    }
+                }
+                else{
+                    // std::cout << "base = " << base << endl;
+                    if(j < base){
+                        r += bit << ((base-1-j));
+                        j++;
+                    }
+                    if(j == base){
+                        if(r < (pow(2,base+1)-m)){ //b bits de representaçao
+                            //mantem-se
+                        }
+                        else{ // (b+1)bits de representaçao
+                            r = r - pow(2,base+1)+m;
+                        }
+                        //std::cout << "q = " << q << endl;
+                        //std::cout << "r = " << r << endl;
+                        if(flag){
+                            values.push_back(-(q*m + r));
+                            //std::cout << "Inteiro descodificado: " << -(q*m + r) <<endl;
+                        }
+                        else{
+                            values.push_back((q*m + r));
+                            //std::cout << "Inteiro descodificado: " << q*m + r <<endl;
+                        }
+                        isq = true; first = true; flag = false;
+                        r = 0; q = 0; j = 0;
+                    }
+                }
+            }
+            
+            return values;
             //return q*m + r;
         }
         bool IsPowerOfTwo(ulong x)

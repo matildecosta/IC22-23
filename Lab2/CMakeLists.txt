@@ -24,3 +24,6 @@ target_link_libraries (ex3 ${OpenCV_LIBS})
 
 add_executable (ex4 codec4.cpp)
 target_link_libraries (ex4 sndfile)
+
+add_executable (ex6 codec6.cpp)
+target_link_libraries (ex6 ${OpenCV_LIBS})
