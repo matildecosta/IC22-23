@@ -41,12 +41,6 @@ class Golomb{
         void encode(int n){
             int q = abs(floor(n/m));    // Divisão inteira
             int r = abs(n%m);    // Resto da divisão
-            // std::cout << "m = " << m << endl;
-            // std::cout << "b = " << base << endl;
-            // std::cout << "q = " << q << endl;
-            // std::cout << "r = " << r << endl;
-            // std::cout << "n =  " << n <<endl;
-            // std::cout << "x = " << x << endl;
             int i;
             if(n<0){
                 bs.write_bit(1); //se for negativo
