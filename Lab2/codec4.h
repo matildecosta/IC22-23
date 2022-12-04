@@ -13,6 +13,7 @@ class Codec4{
         std::vector<short> all_samples;
         size_t ind=0;
         Golomb  mod0, mod1, mod2, mod3;
+        double max = 32767,min=-32768;
 
     public:
 
@@ -236,10 +237,18 @@ class Codec4{
         }
 
         int quantizacao(int bits, int n){
-            int b = 16 - bits;
-            n = n >> b;
-            n = n << 16-bits;
-            n = n | (0x1 << (16-bits+1));
+            int niveis = pow(2,bits);                       // numero de intervalos para estes bits
+            double int_niveis = abs((max-min)/niveis);      // intervalo entre cada nivel
+            int i;
+            double dist;
+            while(i <= niveis){
+                dist = n-((i*int_niveis)+min);
+                if(dist <= (int_niveis/2) && dist>=0){    //verifica se está a metade do intervalo
+                    n = (i*int_niveis)+min;      //se estiver a metade arredonda sempre para cima 
+                    break;
+                }
+                i++;
+            } 
             return n;
         }
 
