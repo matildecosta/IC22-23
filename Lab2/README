@@ -4,10 +4,6 @@ To build:
 To test:
 	./opencv-example-bin/copy inFile.ppm outFile.ppm // To copy inFile into outFile
 	./opencv-example-bin/ex2 inFile.ppm outFile.ppm // To edit inFile into outFile (editing options in UI)
-<<<<<<< HEAD
-	
-=======
 	./opencv-example-bin/ex3 outFile.bin mode(w or r) m (parameter of golomb code)
 	./opencv-example-bin/ex4 sample.wav //
 	./opencv-example-bin/ex6 file.ppm	
->>>>>>> bd05b11e9885ac96ed6857871ac0f17d3e258ccc
