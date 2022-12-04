@@ -1,1 +1,0 @@
-/usr/bin/c++  -Wall -Wextra -std=c++17 -g3 -fsanitize=address CMakeFiles/ex4.dir/codec4.cpp.o -o ../opencv-example-bin/ex4  -lsndfile 
