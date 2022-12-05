@@ -50,7 +50,6 @@ public:
         default:
             break;
         }
-        in = Mat::zeros(in.rows, in.cols, CV_8UC3);(in.rows, in.cols, CV_8UC3);
         in = img;
         ch = img.channels();
     }
@@ -279,7 +278,7 @@ public:
 
     void desmod0()
     {
-        Mat out(in.rows, in.cols, CV_8UC3);
+        Mat out = Mat::zeros(in.rows, in.cols, CV_8UC3);
         vector<short> values = mod0.decode();
         int count = 0;
         for (int j = 0; j < in.rows; j++)
@@ -301,8 +300,8 @@ public:
 
     void desmod1()
     {
-        Mat out(in.rows, in.cols, CV_8UC3);
-        Mat outt(in.rows, in.cols, CV_8UC3);
+        Mat out = Mat::zeros(in.rows, in.cols, CV_8UC3);
+        Mat outt = Mat::zeros(in.rows, in.cols, CV_8UC3);
         vector<short> values = mod1.decode();
         int x_prev = 0;
         for (int j = 0; j < in.rows; j++)
@@ -342,8 +341,8 @@ public:
 
     void desmod2()
     {
-        Mat out(in.rows, in.cols, CV_8UC3);
-        Mat outt(in.rows, in.cols, CV_8UC3);
+        Mat out = Mat::zeros(in.rows, in.cols, CV_8UC3);
+        Mat outt = Mat::zeros(in.rows, in.cols, CV_8UC3);
         vector<short> values = mod2.decode();
         int x_prev = 0;
         for (int j = 0; j < in.rows; j++)
@@ -383,8 +382,8 @@ public:
 
     void desmod3()
     {
-        Mat out(in.rows, in.cols, CV_8UC3);
-        Mat outt(in.rows, in.cols, CV_8UC3);
+        Mat out = Mat::zeros(in.rows, in.cols, CV_8UC3);
+        Mat outt = Mat::zeros(in.rows, in.cols, CV_8UC3);
         vector<short> values = mod3.decode();
         int x_prev = 0;
         for (int j = 0; j < in.rows; j++)
@@ -424,8 +423,8 @@ public:
 
     void desmod4()
     {
-        Mat out(in.rows, in.cols, CV_8UC3);
-        Mat outt(in.rows, in.cols, CV_8UC3);
+        Mat out = Mat::zeros(in.rows, in.cols, CV_8UC3);
+        Mat outt = Mat::zeros(in.rows, in.cols, CV_8UC3);
         vector<short> values = mod4.decode();
         int x_prev = 0;
         for (int j = 0; j < in.rows; j++)
@@ -465,8 +464,8 @@ public:
 
     void desmod5()
     {
-        Mat out(in.rows, in.cols, CV_8UC3);
-        Mat outt(in.rows, in.cols, CV_8UC3);
+        Mat out = Mat::zeros(in.rows, in.cols, CV_8UC3);
+        Mat outt = Mat::zeros(in.rows, in.cols, CV_8UC3);
         vector<short> values = mod5.decode();
         int x_prev = 0;
         for (int j = 0; j < in.rows; j++)
@@ -506,8 +505,8 @@ public:
 
     void desmod6()
     {
-        Mat out(in.rows, in.cols, CV_8UC3);
-        Mat outt(in.rows, in.cols, CV_8UC3);
+        Mat out = Mat::zeros(in.rows, in.cols, CV_8UC3);
+        Mat outt = Mat::zeros(in.rows, in.cols, CV_8UC3);
         vector<short> values = mod6.decode();
         int x_prev = 0;
         for (int j = 0; j < in.rows; j++)
@@ -547,8 +546,8 @@ public:
 
     void desmod7()
     {
-        Mat out(in.rows, in.cols, CV_8UC3);
-        Mat outt(in.rows, in.cols, CV_8UC3);
+        Mat out = Mat::zeros(in.rows, in.cols, CV_8UC3);
+        Mat outt = Mat::zeros(in.rows, in.cols, CV_8UC3);
         vector<short> values = mod7.decode();
         int x_prev = 0;
         for (int j = 0; j < in.rows; j++)
