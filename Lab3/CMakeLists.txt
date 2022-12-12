@@ -13,5 +13,5 @@ SET (CMAKE_CXX_FLAGS_DEBUG "-g3 -fsanitize=address")
 SET (BASE_DIR ${CMAKE_SOURCE_DIR} )
 SET (CMAKE_RUNTIME_OUTPUT_DIRECTORY ${BASE_DIR}/compress_text)
 
-add_executable (text text.cpp)
-target_link_libraries (text)
+add_executable (Compress Compress.cpp)
+target_link_libraries (Compress)

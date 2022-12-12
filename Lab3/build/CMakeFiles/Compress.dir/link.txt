@@ -1,0 +1,1 @@
+/usr/bin/c++  -Wall -Wextra -std=c++17 -g3 -fsanitize=address CMakeFiles/Compress.dir/Compress.cpp.o -o ../compress_text/Compress 
