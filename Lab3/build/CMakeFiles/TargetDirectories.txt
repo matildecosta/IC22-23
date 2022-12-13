@@ -1,3 +1,0 @@
-/home/saldanha/Desktop/MECT/Projetos/IC/IC22-23/Lab3/build/CMakeFiles/Compress.dir
-/home/saldanha/Desktop/MECT/Projetos/IC/IC22-23/Lab3/build/CMakeFiles/edit_cache.dir
-/home/saldanha/Desktop/MECT/Projetos/IC/IC22-23/Lab3/build/CMakeFiles/rebuild_cache.dir

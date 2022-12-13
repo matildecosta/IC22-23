@@ -13,7 +13,7 @@ using namespace std;
 class fcm
 {
 private:
-    map<string,vector<char,int>,float> table;
+    std::map<pair<string,char>,float> table;
     fstream myFile;
     int k;
 
@@ -39,22 +39,32 @@ public:
         }
         while (!myFile.eof()){
             myFile.get(c);
-            if (table.find(k_model) == table.end()){ // Se não existir a key k_model no map
-                vector<char,int> v;
-                v.push_back(c);
-                table.insert(pair<string,vector<char,int>>(k_model,v)); // ??
-            } else {
-                table[k_model].push_back(c);
+            if(c != '\n'){
+                if (table.find(make_pair(k_model, c)) == table.end())
+                { // Se não existir a key k_model no map
+                    table.insert(make_pair(make_pair(k_model,c),1));
+                } 
+                else 
+                {
+                    table[make_pair(k_model, c)] += 1;
+                }
+                // comparar com os ultimos k valores
+                // adicionar ao mapa
+                k_model.erase(0,1);
+                k_model += c;
             }
-            // comparar com os ultimos k valores
-            // adicionar ao mapa
-            k_model.erase(0,1);
-            k_model += c;
-    }
+            //table.insert(make_pair(k_model,make_pair(make_pair(c,1),1.0)));
+            
+        }
     }
 
-    auto getStats(){
-        return table;
+    void getStats(){
+        for(map< pair<string,char>, float>::const_iterator it = table.begin();
+            it != table.end(); ++it)
+        {
+            std::cout << it->first.first << " " << it->first.second << " " << it->second << "\n";
+        }
+        return ;
     }
 
     void closeFile(){

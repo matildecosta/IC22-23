@@ -14,8 +14,10 @@ int main (int argc, char** argv)
         return -1;
     }
 
-    fcm myFCM(argv[1]);
-
+    fcm myFCM(argv[argc-1], 2);
+    myFCM.readFile();
+    myFCM.closeFile();
+    myFCM.getStats();
     
 
 
