@@ -1,0 +1,3 @@
+/home/matilde/Desktop/IC/IC-Lab/Lab3/build/CMakeFiles/part1.dir
+/home/matilde/Desktop/IC/IC-Lab/Lab3/build/CMakeFiles/edit_cache.dir
+/home/matilde/Desktop/IC/IC-Lab/Lab3/build/CMakeFiles/rebuild_cache.dir

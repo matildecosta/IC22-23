@@ -2,3 +2,4 @@ To build:
 	make
 
 To test:
+	./part1 <inFile_Path> <k> <alpha> // Exercício 1

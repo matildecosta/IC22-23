@@ -48,13 +48,10 @@ public:
                 {
                     table[make_pair(k_model, c)] += 1;
                 }
-                // comparar com os ultimos k valores
-                // adicionar ao mapa
-                k_model.erase(0,1);
-                k_model += c;
-            }
-            //table.insert(make_pair(k_model,make_pair(make_pair(c,1),1.0)));
-            
+                // atualizar a janela de visualização
+                k_model.erase(0,1); // Apaga o primeiro char da string
+                k_model += c;   // Adiciona o novo char ao fim da string
+            }            
         }
     }
 
