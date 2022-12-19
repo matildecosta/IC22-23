@@ -1,4 +1,4 @@
-# Install script for directory: /home/matilde/Desktop/IC/IC-Lab/Lab3
+# Install script for directory: /home/saldanha/Desktop/MECT/Projetos/IC/IC22-23/Lab3
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/matilde/Desktop/IC/IC-Lab/Lab3/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/saldanha/Desktop/MECT/Projetos/IC/IC22-23/Lab3/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
