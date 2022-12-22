@@ -19,19 +19,14 @@ int main (int argc, char** argv)
     cout << "Insert smoothing parameter:  ";
     cin >> alpha; 
     FCM fcm(k, alpha); //iniciar as variaveis fundamentais
-    double min = MAXFLOAT, tmp;
-    string language;
+
+    // Vou fazer a leitura frase a frase e comparar o resultado em bits entre os diferentes modos.
     for(int j = 2; j < argc; j++){
-        std::cout << "Processing " << j-1 << endl;
-        fcm.read_model(argv[j]);
-        tmp = fcm.get_entropy(argv[1]);
-        if(tmp < min){
-            min = tmp; 
-            language = string(argv[j]).erase(string(argv[j]).length()-5);
-            language.erase(0,7);
-        }
+        std::cout << "Processing models" << j-1 << endl;
+        fcm.readmodels(argv[j]);
     }
-    cout << "Language: " << language << endl;
-    cout << "N. of bits: " << min << endl; 
+    fcm.openFile(argv[1]);
+    while(fcm.get_entropy_line2line());
+    fcm.closeFile();
     return 0;
 }
