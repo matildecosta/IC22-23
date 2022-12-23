@@ -21,15 +21,18 @@ private:
     int k;
     unordered_map<int, string> languages;
     double alpha;
-    int count_mods;
+    int count_mods, diff_lang;
     fstream Fileseg;
+    pair<int,int> beg_point, end_point;
 
 public:
     FCM(){}
     FCM(int k_value, double alpha_value){
         k = k_value;
         alpha = alpha_value;
-        count_mods = 0;
+        count_mods = 0; diff_lang = -1;
+        beg_point = {0,0};
+        end_point = {0,0};
     }
 
     void openFile(string anali_text){
@@ -224,17 +227,28 @@ public:
         //O ficheiro é aberto previamente para esta finção poder ser chamada diversas vezes
         string k_model; 
         char c;
+        int count = 0;
         for(int i = 0; i < k; i++)
         {
+            if(Fileseg.eof()){return 0;}
             Fileseg.get(c);
             if(c == '\n'){  // garantir que não estamos no final da linha
                 i--;
+                end_point.first++;
+                end_point.second=0;
+                if(count == 0){
+                    beg_point.first++;
+                    beg_point.second = 0;
+                    count++;
+                }
             }
             else
             {
+                end_point.second++;
                 k_model += c;
             }
         }
+        // printf("(%d,%d)\n", end_point.first, end_point.second);
         unordered_map<string, unordered_map<char, int>>::iterator itr;
         unordered_map<char, int>::iterator ptr;
         unordered_map<char, int> m;
@@ -243,9 +257,11 @@ public:
         vector<double> total_bits, H;
         pair<int,int> tmp_indc;
         total_bits.resize(count_mods,0); H.resize(count_mods,0);
-        while(!Fileseg.eof()){
+        while(!Fileseg.eof())
+        {
             total_bits.resize(count_mods,0); H.resize(count_mods,0); 
             Fileseg.get(c);
+            end_point.second++;
             if(c != '.'){ //final de uma frase
             //correr todos os modelos
                 for(int cm = 0; cm < count_mods; cm++){
@@ -270,11 +286,18 @@ public:
                         H[cm] +=  (-prob)*log2(prob);
                         total += sum_context;
                     }
+                    else{
+                        if(cm == 0){
+                            end_point.first++;
+                            end_point.second = 0;
+                        }
+                    }
                 }
+                //printf("(%d,%d)\n", end_point.first, end_point.second);
                 k_model.erase(0,1);     // Apaga o primeiro char da string
                 k_model += c;           // Adiciona o novo char ao fim da string
             }
-            else{
+            else{  //Quando acabar uma frase
                 min = total_bits[0];
                 int tmp = 0;
                 for(int cm = 1; cm < count_mods; cm++){
@@ -283,11 +306,14 @@ public:
                         min = total_bits[cm];
                     }
                 }
-                std::cout << "O segmento está em " << languages[tmp] << endl;
+                if(diff_lang != tmp){
+                    printf("O segmento que começa em (%d,%d) está em ", beg_point.first, beg_point.second);
+                    cout << languages[tmp] << endl;
+                    //std::cout << "O segmento está em " << languages[tmp] << endl;
+                    diff_lang = tmp;
+                    beg_point.first = end_point.first; beg_point.second = end_point.second;
+                }
                 return 1;
-
-                //std::cout << "Nr. bits: " << total_bits <<  endl;   
-                //return 1;  //final de uma frase
             }
         }
         return 0;  
