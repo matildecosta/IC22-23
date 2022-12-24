@@ -8,6 +8,7 @@
 #include <math.h>
 #include <string>
 #include <numeric>
+#include <ctype.h>
 #include <utility>
 
 #define ALPHABETH_SIZE 127
@@ -227,20 +228,27 @@ public:
         //O ficheiro é aberto previamente para esta finção poder ser chamada diversas vezes
         string k_model; 
         char c;
-        int count = 0;
+        bool next_one = false;
         for(int i = 0; i < k; i++)
         {
             if(Fileseg.eof()){return 0;}
             Fileseg.get(c);
+            if(next_one){
+                next_one = false;
+            }else{
+                if(((c & 0x80) == 0x80)){
+                    end_point.second--;
+                    next_one=true;
+                }    
+            }
             if(c == '\n'){  // garantir que não estamos no final da linha
-                i--;
                 end_point.first++;
                 end_point.second=0;
-                if(count == 0){
+                if(i == 0){
                     beg_point.first++;
                     beg_point.second = 0;
-                    count++;
                 }
+                i--;
             }
             else
             {
@@ -256,11 +264,20 @@ public:
         double prob, min;
         vector<double> total_bits, H;
         pair<int,int> tmp_indc;
+        
         total_bits.resize(count_mods,0); H.resize(count_mods,0);
         while(!Fileseg.eof())
         {
             total_bits.resize(count_mods,0); H.resize(count_mods,0); 
             Fileseg.get(c);
+            if(next_one){
+                next_one = false;
+            }else{
+                if(((c & 0x80) == 0x80)){
+                    end_point.second--;
+                    next_one=true;
+                }    
+            }
             end_point.second++;
             if(c != '.'){ //final de uma frase
             //correr todos os modelos
