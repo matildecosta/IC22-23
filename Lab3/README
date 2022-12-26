@@ -1,0 +1,7 @@
+To build:
+	make
+
+To test:
+	./lang <inFile_Path> <k> <alpha> // Exercício 1
+	./text_analysis/findlang lusiadas.txt models/*
+	./text_analysis/locatelang example.txt models/*
