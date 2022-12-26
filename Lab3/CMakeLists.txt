@@ -12,3 +12,6 @@ SET (BASE_DIR ${CMAKE_SOURCE_DIR} )
 SET (CMAKE_RUNTIME_OUTPUT_DIRECTORY ${BASE_DIR}/text_analysis)
 
 add_executable (part1 part1.cpp)
+add_executable (lang lang.cpp)
+add_executable (findlang findlang.cpp)
+add_executable (locatelang locatelang.cpp)

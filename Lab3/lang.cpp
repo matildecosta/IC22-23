@@ -10,7 +10,7 @@ int main (int argc, char** argv)
 {
     if (argc != 5)
     {
-        cout << "Usage: ./part1 <model_file> <test> <k> <alpha>" << endl;
+        cout << "Usage: ./lang <model_file> <test> <k> <alpha>" << endl;
         return -1;
     }
     FCM fcm(atoi(argv[argc-2]), atof(argv[argc-1]));
