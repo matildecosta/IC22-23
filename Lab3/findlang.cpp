@@ -10,7 +10,7 @@ int main (int argc, char** argv)
 {
     if (argc < 2)
     {
-        cout << "Usage: ./part1 <file> <model>" << endl;
+        cout << "Usage: ./findlang <file> <model>" << endl;
         return -1;
     }
     int k; double alpha;
