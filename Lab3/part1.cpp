@@ -15,12 +15,9 @@ int main (int argc, char** argv)
     }
 
     string text = argv[argc-3];
-    fcm myFCM(text, atoi(argv[argc-2]), atof(argv[argc-1]));
-    myFCM.readFile();
-    //myFCM.readAlphabet();
-    myFCM.closeFile();
-    // myFCM.getStats();
-    myFCM.getEntropy();
+    FCM myFCM(atoi(argv[argc-2]), atof(argv[argc-1]));
+    myFCM.read_model(text);
+    myFCM.getEntropy_model();
 
 
     return 0;

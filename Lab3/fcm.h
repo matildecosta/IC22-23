@@ -97,7 +97,7 @@ public:
         myFile.close();
     }
 
-    void readAlphabet(string model){
+    void readAlphabet(string model){   //conta o número de caracteres diferentes no modelo
         ifstream myFile(model, ios::in);
         char c;
         int count = 0;
@@ -159,7 +159,7 @@ public:
         myFile.close();
     }
 
-    void getStats()
+    void getStats() //usado para imprimir o modelo
     {
         unordered_map<string,unordered_map<char, int>>::iterator itr;
         unordered_map<char, int>::iterator ptr;
@@ -168,6 +168,39 @@ public:
                  
             }
         }
+        return ;
+    }
+
+
+    void getEntropy_model()
+    {
+        vector<int> sum_context;
+        vector<double> H_context;
+        int total;
+        unordered_map<char, int> sum;
+        double Prob_context = 0.0, H_model = 0.0; 
+        unordered_map<string, unordered_map<char, int>>::iterator itr;
+        unordered_map<char, int>::iterator ptr;
+        size_t i = 0;
+        double prob;
+        for(itr = table.begin(); itr != table.end(); itr++){
+            sum_context.push_back(accumulate(std::begin(itr->second), end(itr->second), 0, [] (int value, const std::unordered_map<char, int>::value_type& p){ return value + p.second; }));
+            //sum_context.push_back(accumulate(itr->second.begin(),itr->second.end(),0,addss));
+            H_context.push_back(0);
+            for(ptr = itr->second.begin(); ptr != itr->second.end(); ptr++){
+
+                prob = (ptr->second + alpha)/(sum_context[i] + (alpha * ALPHABETH_SIZE)); //p_i
+                H_context[i] += (-prob)*log2(prob);
+            }
+            total += sum_context[i];
+            i++;
+        }
+
+        for(size_t j = 0; j <= i; j++){
+            Prob_context = sum_context[j] / double(total); 
+            H_model += Prob_context * H_context[j];
+        } 
+        std::cout << "Entropy: " << H_model << endl;
         return ;
     }
 

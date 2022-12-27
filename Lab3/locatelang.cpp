@@ -8,7 +8,7 @@ using namespace std;
 
 int main (int argc, char** argv)
 {
-    if (argc < 2)
+    if (argc < 3)
     {
         cout << "Usage: ./locatelang <file> <model>" << endl;
         return -1;
@@ -22,7 +22,7 @@ int main (int argc, char** argv)
 
     // Vou fazer a leitura frase a frase e comparar o resultado em bits entre os diferentes modos.
     for(int j = 2; j < argc; j++){
-        std::cout << "Processing models" << j-1 << endl;
+        std::cout << "Processing model " << j-1 << endl;
         fcm.readmodels(argv[j]);
     }
     fcm.openFile(argv[1]);
