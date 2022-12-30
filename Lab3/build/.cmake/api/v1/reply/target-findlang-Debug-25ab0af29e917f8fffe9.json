@@ -2,7 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "/home/saldanha/Desktop/MECT/Projetos/IC/IC22-23/Lab3/text_analysis/part1"
+			"path" : "/home/matilde/Desktop/IC/IC-Lab/Lab3/text_analysis/findlang"
 		}
 	],
 	"backtrace" : 1,
@@ -24,7 +24,7 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 14,
+				"line" : 16,
 				"parent" : 0
 			}
 		]
@@ -45,7 +45,7 @@
 			]
 		}
 	],
-	"id" : "part1::@6890427a1f51a3e7e1df",
+	"id" : "findlang::@6890427a1f51a3e7e1df",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -61,8 +61,8 @@
 		],
 		"language" : "CXX"
 	},
-	"name" : "part1",
-	"nameOnDisk" : "part1",
+	"name" : "findlang",
+	"nameOnDisk" : "findlang",
 	"paths" : 
 	{
 		"build" : ".",
@@ -83,7 +83,7 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "part1.cpp",
+			"path" : "findlang.cpp",
 			"sourceGroupIndex" : 0
 		}
 	],

@@ -1,0 +1,87 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "lab3",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "fcm::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-fcm-Debug-7fd64ba7df35277d8bb3.json",
+					"name" : "fcm",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "findlang::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-findlang-Debug-25ab0af29e917f8fffe9.json",
+					"name" : "findlang",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "lang::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-lang-Debug-76e6a46ad3c28478d675.json",
+					"name" : "lang",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "locatelang::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-locatelang-Debug-5abbef140bae34fbdaf9.json",
+					"name" : "locatelang",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/matilde/Desktop/IC/IC-Lab/Lab3/build",
+		"source" : "/home/matilde/Desktop/IC/IC-Lab/Lab3"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

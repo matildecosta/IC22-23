@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/saldanha/Desktop/MECT/Projetos/IC/IC22-23/Lab3
+CMAKE_SOURCE_DIR = /home/matilde/Desktop/IC/IC-Lab/Lab3
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/saldanha/Desktop/MECT/Projetos/IC/IC22-23/Lab3/build
+CMAKE_BINARY_DIR = /home/matilde/Desktop/IC/IC-Lab/Lab3/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/saldanha/Desktop/MECT/Projetos/IC/IC22-23/Lab3/build/CMakeFiles /home/saldanha/Desktop/MECT/Projetos/IC/IC22-23/Lab3/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/matilde/Desktop/IC/IC-Lab/Lab3/build/CMakeFiles /home/matilde/Desktop/IC/IC-Lab/Lab3/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/saldanha/Desktop/MECT/Projetos/IC/IC22-23/Lab3/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/matilde/Desktop/IC/IC-Lab/Lab3/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -117,24 +117,135 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named part1
+# Target rules for targets named fcm
 
 # Build rule for target.
-part1: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 part1
-.PHONY : part1
+fcm: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 fcm
+.PHONY : fcm
 
 # fast build rule for target.
-part1/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/part1.dir/build.make CMakeFiles/part1.dir/build
-.PHONY : part1/fast
+fcm/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fcm.dir/build.make CMakeFiles/fcm.dir/build
+.PHONY : fcm/fast
+
+#=============================================================================
+# Target rules for targets named lang
+
+# Build rule for target.
+lang: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lang
+.PHONY : lang
+
+# fast build rule for target.
+lang/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lang.dir/build.make CMakeFiles/lang.dir/build
+.PHONY : lang/fast
+
+#=============================================================================
+# Target rules for targets named findlang
+
+# Build rule for target.
+findlang: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 findlang
+.PHONY : findlang
+
+# fast build rule for target.
+findlang/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/findlang.dir/build.make CMakeFiles/findlang.dir/build
+.PHONY : findlang/fast
+
+#=============================================================================
+# Target rules for targets named locatelang
+
+# Build rule for target.
+locatelang: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 locatelang
+.PHONY : locatelang
+
+# fast build rule for target.
+locatelang/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/locatelang.dir/build.make CMakeFiles/locatelang.dir/build
+.PHONY : locatelang/fast
+
+findlang.o: findlang.cpp.o
+.PHONY : findlang.o
+
+# target to build an object file
+findlang.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/findlang.dir/build.make CMakeFiles/findlang.dir/findlang.cpp.o
+.PHONY : findlang.cpp.o
+
+findlang.i: findlang.cpp.i
+.PHONY : findlang.i
+
+# target to preprocess a source file
+findlang.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/findlang.dir/build.make CMakeFiles/findlang.dir/findlang.cpp.i
+.PHONY : findlang.cpp.i
+
+findlang.s: findlang.cpp.s
+.PHONY : findlang.s
+
+# target to generate assembly for a file
+findlang.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/findlang.dir/build.make CMakeFiles/findlang.dir/findlang.cpp.s
+.PHONY : findlang.cpp.s
+
+lang.o: lang.cpp.o
+.PHONY : lang.o
+
+# target to build an object file
+lang.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lang.dir/build.make CMakeFiles/lang.dir/lang.cpp.o
+.PHONY : lang.cpp.o
+
+lang.i: lang.cpp.i
+.PHONY : lang.i
+
+# target to preprocess a source file
+lang.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lang.dir/build.make CMakeFiles/lang.dir/lang.cpp.i
+.PHONY : lang.cpp.i
+
+lang.s: lang.cpp.s
+.PHONY : lang.s
+
+# target to generate assembly for a file
+lang.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lang.dir/build.make CMakeFiles/lang.dir/lang.cpp.s
+.PHONY : lang.cpp.s
+
+locatelang.o: locatelang.cpp.o
+.PHONY : locatelang.o
+
+# target to build an object file
+locatelang.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/locatelang.dir/build.make CMakeFiles/locatelang.dir/locatelang.cpp.o
+.PHONY : locatelang.cpp.o
+
+locatelang.i: locatelang.cpp.i
+.PHONY : locatelang.i
+
+# target to preprocess a source file
+locatelang.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/locatelang.dir/build.make CMakeFiles/locatelang.dir/locatelang.cpp.i
+.PHONY : locatelang.cpp.i
+
+locatelang.s: locatelang.cpp.s
+.PHONY : locatelang.s
+
+# target to generate assembly for a file
+locatelang.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/locatelang.dir/build.make CMakeFiles/locatelang.dir/locatelang.cpp.s
+.PHONY : locatelang.cpp.s
 
 part1.o: part1.cpp.o
 .PHONY : part1.o
 
 # target to build an object file
 part1.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/part1.dir/build.make CMakeFiles/part1.dir/part1.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fcm.dir/build.make CMakeFiles/fcm.dir/part1.cpp.o
 .PHONY : part1.cpp.o
 
 part1.i: part1.cpp.i
@@ -142,7 +253,7 @@ part1.i: part1.cpp.i
 
 # target to preprocess a source file
 part1.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/part1.dir/build.make CMakeFiles/part1.dir/part1.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fcm.dir/build.make CMakeFiles/fcm.dir/part1.cpp.i
 .PHONY : part1.cpp.i
 
 part1.s: part1.cpp.s
@@ -150,7 +261,7 @@ part1.s: part1.cpp.s
 
 # target to generate assembly for a file
 part1.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/part1.dir/build.make CMakeFiles/part1.dir/part1.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fcm.dir/build.make CMakeFiles/fcm.dir/part1.cpp.s
 .PHONY : part1.cpp.s
 
 # Help Target
@@ -161,7 +272,19 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... part1"
+	@echo "... fcm"
+	@echo "... findlang"
+	@echo "... lang"
+	@echo "... locatelang"
+	@echo "... findlang.o"
+	@echo "... findlang.i"
+	@echo "... findlang.s"
+	@echo "... lang.o"
+	@echo "... lang.i"
+	@echo "... lang.s"
+	@echo "... locatelang.o"
+	@echo "... locatelang.i"
+	@echo "... locatelang.s"
 	@echo "... part1.o"
 	@echo "... part1.i"
 	@echo "... part1.s"

@@ -3,5 +3,5 @@ To build:
 
 To test:
 	./lang <inFile_Path> <k> <alpha> // Exercício 1
-	./text_analysis/findlang lusiadas.txt models/*
-	./text_analysis/locatelang example.txt models/*
+	./text_analysis/findlang <infile>.txt models/*	// para encontrar a linguagem de um texto
+	./text_analysis/locatelang <infile>.txt models/* // para encontrar linguagem de uma frase, num txt com várias frases
