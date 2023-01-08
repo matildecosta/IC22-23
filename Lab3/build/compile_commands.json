@@ -1,7 +1,0 @@
-[
-{
-  "directory": "/home/saldanha/Desktop/MECT/Projetos/IC/IC22-23/Lab3/build",
-  "command": "/usr/bin/g++    -Wall -Wextra -std=c++17 -g3 -fsanitize=address -o CMakeFiles/part1.dir/part1.cpp.o -c /home/saldanha/Desktop/MECT/Projetos/IC/IC22-23/Lab3/part1.cpp",
-  "file": "/home/saldanha/Desktop/MECT/Projetos/IC/IC22-23/Lab3/part1.cpp"
-}
-]
