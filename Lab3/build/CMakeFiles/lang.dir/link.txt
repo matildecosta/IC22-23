@@ -1,1 +1,0 @@
-/usr/bin/c++  -Wall -Wextra -std=c++17 -g3 -fsanitize=address CMakeFiles/lang.dir/lang.cpp.o -o ../text_analysis/lang 

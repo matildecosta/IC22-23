@@ -1,6 +1,0 @@
-/home/matilde/Desktop/IC/IC-Lab/Lab3/build/CMakeFiles/fcm.dir
-/home/matilde/Desktop/IC/IC-Lab/Lab3/build/CMakeFiles/lang.dir
-/home/matilde/Desktop/IC/IC-Lab/Lab3/build/CMakeFiles/findlang.dir
-/home/matilde/Desktop/IC/IC-Lab/Lab3/build/CMakeFiles/locatelang.dir
-/home/matilde/Desktop/IC/IC-Lab/Lab3/build/CMakeFiles/edit_cache.dir
-/home/matilde/Desktop/IC/IC-Lab/Lab3/build/CMakeFiles/rebuild_cache.dir
